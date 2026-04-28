@@ -1,0 +1,11 @@
+# robots.txt — Clinidental
+# https://clinidental.com
+
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://clinidental.com/sitemap.xml
+
+# No indexar assets innecesarios
+Disallow: /assets/favicon/

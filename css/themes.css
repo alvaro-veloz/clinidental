@@ -1,0 +1,321 @@
+/* ============================================================
+   themes.css — Temas visuales y secciones especiales — v2
+   ============================================================ */
+
+
+/* ── 1. SECCIONES ───────────────────────────────────────────── */
+
+.section--surface  { background: var(--color-surface); }
+.section--surface2 { background: var(--color-surface-2); }
+
+/* Fondo con patrón de puntos sutil */
+.section--dots {
+    background-image: radial-gradient(rgba(0,212,255,0.08) 1px, transparent 1px);
+    background-size: 28px 28px;
+}
+
+/* Fondo con líneas de cuadrícula */
+.section--grid {
+    background-image:
+        linear-gradient(rgba(0,212,255,0.04) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(0,212,255,0.04) 1px, transparent 1px);
+    background-size: 40px 40px;
+}
+
+/* Divisor visual entre secciones */
+.section-divider {
+    height: 1px;
+    background: linear-gradient(
+        90deg,
+        transparent 0%,
+        rgba(0,212,255,0.3) 30%,
+        rgba(124,58,237,0.3) 70%,
+        transparent 100%
+    );
+    margin: 0;
+}
+
+
+/* ── 2. TESTIMONIOS ─────────────────────────────────────────── */
+
+.testimonios {
+    background: var(--color-surface);
+    position: relative; overflow: hidden;
+}
+
+.testimonios::before {
+    content: '';
+    position: absolute;
+    width: 700px; height: 700px; border-radius: 50%;
+    background: radial-gradient(circle, rgba(0,212,255,0.05) 0%, transparent 70%);
+    top: -200px; right: -150px; pointer-events: none;
+}
+
+.testimonios::after {
+    content: '';
+    position: absolute;
+    width: 400px; height: 400px; border-radius: 50%;
+    background: radial-gradient(circle, rgba(124,58,237,0.05) 0%, transparent 70%);
+    bottom: -100px; left: -100px; pointer-events: none;
+}
+
+.testimonios h2 { color: var(--color-white); }
+.testimonios .section-subtitle { color: var(--color-text-muted); }
+.testimonios .testimonial-text { color: var(--color-text); }
+
+
+/* ── 3. SOBRE MÍ ────────────────────────────────────────────── */
+
+.sobre-mi { position: relative; }
+
+@media (min-width: 769px) {
+    .sobre-mi-content {
+        padding-left: var(--space-md);
+        border-left: 1px solid var(--color-border);
+        position: relative;
+    }
+
+    .sobre-mi-content::before {
+        content: '';
+        position: absolute;
+        left: -1px; top: 0;
+        width: 2px; height: 80px;
+        background: linear-gradient(to bottom, var(--color-primary), var(--color-secondary-light));
+        border-radius: var(--radius-round);
+    }
+}
+
+
+/* ── 4. UNIVERSIDADES ───────────────────────────────────────── */
+
+.universidades {
+    background: var(--color-surface);
+    border-top: 1px solid var(--color-border-soft);
+    border-bottom: 1px solid var(--color-border-soft);
+}
+
+
+/* ── 5. FAQ ─────────────────────────────────────────────────── */
+
+.faq { background: var(--color-bg); }
+
+.accordion-item:hover .accordion-header:not(.active) {
+    color: var(--color-primary);
+}
+
+
+/* ── 6. SCROLL REVEAL ───────────────────────────────────────── */
+
+.reveal {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.reveal.visible { opacity: 1; transform: translateY(0); }
+
+.reveal-delay-1 { transition-delay: 0.10s; }
+.reveal-delay-2 { transition-delay: 0.20s; }
+.reveal-delay-3 { transition-delay: 0.30s; }
+.reveal-delay-4 { transition-delay: 0.40s; }
+.reveal-delay-5 { transition-delay: 0.50s; }
+
+@media (prefers-reduced-motion: reduce) {
+    .reveal { opacity: 1; transform: none; transition: none; }
+}
+
+
+/* ── 7. EFECTOS ESPECIALES ──────────────────────────────────── */
+
+/* Borde con gradiente animado */
+.border-glow {
+    border: 1px solid transparent;
+    background: linear-gradient(var(--color-surface), var(--color-surface)) padding-box,
+                linear-gradient(135deg, var(--color-primary), var(--color-secondary-light)) border-box;
+}
+
+/* Texto con gradiente de marca */
+.text-gradient {
+    background: linear-gradient(135deg, var(--color-primary), var(--color-secondary-light));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.text-gradient-green {
+    background: linear-gradient(135deg, var(--color-accent), var(--color-primary));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+/* Chip / badge de tecnología */
+.tech-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    padding: 0.25rem 0.75rem;
+    background: rgba(0,255,136,0.08);
+    border: 1px solid rgba(0,255,136,0.20);
+    border-radius: var(--radius-round);
+    font-size: var(--fs-xs);
+    font-weight: 600;
+    color: var(--color-accent);
+    letter-spacing: 0.05em;
+}
+
+/* Número estadístico grande */
+.stat-number {
+    font-family: var(--font-heading);
+    font-size: clamp(2rem, 4vw, 3.5rem);
+    font-weight: 800;
+    background: linear-gradient(135deg, var(--color-primary), var(--color-accent));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    display: block;
+    line-height: 1;
+}
+
+/* Línea decorativa con color */
+.line-primary  { border-color: rgba(0,212,255,0.3); }
+.line-violet   { border-color: rgba(124,58,237,0.3); }
+.line-green    { border-color: rgba(0,255,136,0.3); }
+
+
+/* ── 8. CLASES ÚTILES DE COLOR ──────────────────────────────── */
+
+.bg-surface   { background: var(--color-surface) !important; }
+.bg-surface-2 { background: var(--color-surface-2) !important; }
+.bg-primary   { background: var(--color-primary) !important; color: var(--color-bg) !important; }
+.bg-violet    { background: var(--color-secondary) !important; color: #fff !important; }
+.bg-green     { background: var(--color-accent) !important; color: var(--color-bg) !important; }
+
+
+/* ── PULIDO FASE 4 — TEMAS ──────────────────────────────────── */
+
+/* Animación de fondo del CTA final */
+@keyframes ctaGlow {
+    0%, 100% {
+        opacity: 0.04;
+        transform: scale(1) translateX(-50%);
+    }
+    50% {
+        opacity: 0.10;
+        transform: scale(1.15) translateX(-50%);
+    }
+}
+
+.cta-final::before {
+    animation: ctaGlow 6s ease-in-out infinite;
+    transform-origin: center;
+}
+
+/* Línea decorativa del sobre-mi animada al hacer scroll */
+.sobre-mi-content.visible::before {
+    animation: lineGrow 0.8s ease forwards;
+}
+
+@keyframes lineGrow {
+    from { height: 0; opacity: 0; }
+    to   { height: 80px; opacity: 1; }
+}
+
+/* Cobertura chips — entrada escalonada */
+.cobertura-item:nth-child(1) { transition-delay: 0.05s; }
+.cobertura-item:nth-child(2) { transition-delay: 0.10s; }
+.cobertura-item:nth-child(3) { transition-delay: 0.15s; }
+.cobertura-item:nth-child(4) { transition-delay: 0.20s; }
+.cobertura-item:nth-child(5) { transition-delay: 0.25s; }
+.cobertura-item:nth-child(6) { transition-delay: 0.30s; }
+.cobertura-item:nth-child(7) { transition-delay: 0.35s; }
+.cobertura-item:nth-child(8) { transition-delay: 0.40s; }
+
+/* Reseñas — efecto shine en hover */
+.reseña-card::after {
+    content: '';
+    position: absolute;
+    top: 0; left: -100%;
+    width: 60%;
+    height: 100%;
+    background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(255,255,255,0.03),
+        transparent
+    );
+    transition: left 0.5s ease;
+    pointer-events: none;
+}
+
+.reseña-card {
+    position: relative;
+    overflow: hidden;
+}
+
+.reseña-card:hover::after {
+    left: 150%;
+}
+
+/* Tech placeholder — rotación 3D sutil en el ícono */
+.tech-placeholder-icon {
+    transform-style: preserve-3d;
+}
+
+.tech-placeholder:hover .tech-placeholder-icon {
+    animation: rotate3d 3s ease-in-out infinite;
+}
+
+@keyframes rotate3d {
+    0%   { transform: rotateY(0deg) rotateX(0deg); }
+    25%  { transform: rotateY(15deg) rotateX(5deg); }
+    75%  { transform: rotateY(-15deg) rotateX(-5deg); }
+    100% { transform: rotateY(0deg) rotateX(0deg); }
+}
+
+/* Número del rating global con counter animation */
+.rating-numero {
+    font-variant-numeric: tabular-nums;
+}
+
+/* Efecto typewriter en el hero subtitle (sutil) */
+.hero-specialty {
+    overflow: hidden;
+    white-space: nowrap;
+    animation: revealChip 0.6s ease 0.3s both;
+}
+
+@keyframes revealChip {
+    from { opacity: 0; transform: translateY(-10px) scale(0.95); }
+    to   { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+
+/* ── CURSOR GLOW ────────────────────────────────────────────── */
+
+.cursor-glow {
+    position: fixed;
+    top: -200px;
+    left: -200px;
+    width: 400px;
+    height: 400px;
+    border-radius: 50%;
+    background: radial-gradient(
+        circle,
+        rgba(0, 212, 255, 0.06) 0%,
+        transparent 65%
+    );
+    pointer-events: none;
+    z-index: 0;
+    will-change: transform;
+    transform: translate(-50%, -50%);
+    /* Solo visible en pantallas grandes */
+}
+
+@media (max-width: 1024px) {
+    .cursor-glow { display: none; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .cursor-glow { display: none; }
+}

@@ -1,0 +1,451 @@
+/* ============================================================
+   galeria.css — Estilos exclusivos de galeria.html
+   Clinidental v2
+   ============================================================ */
+
+
+/* ── FILTROS ────────────────────────────────────────────────── */
+
+.galeria-filtros {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.5rem;
+}
+
+.filtro-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    padding: 0.55rem 1.2rem;
+    font-family: var(--font-body);
+    font-size: var(--fs-sm);
+    font-weight: 600;
+    border-radius: var(--radius-round);
+    border: 1px solid var(--color-border-soft);
+    background: var(--color-surface);
+    color: var(--color-text-muted);
+    cursor: pointer;
+    transition: all var(--transition);
+}
+
+.filtro-btn:hover {
+    border-color: rgba(0,212,255,0.3);
+    color: var(--color-primary);
+    background: rgba(0,212,255,0.05);
+}
+
+.filtro-btn.active {
+    background: rgba(0,212,255,0.12);
+    border-color: var(--color-primary);
+    color: var(--color-primary);
+    box-shadow: 0 0 16px rgba(0,212,255,0.15);
+}
+
+.filtro-btn i { font-size: 0.8rem; }
+
+
+/* ── GRID DE CASOS ──────────────────────────────────────────── */
+
+.galeria-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--space-md);
+}
+
+@media (max-width: 900px) { .galeria-grid { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 560px) { .galeria-grid { grid-template-columns: 1fr; } }
+
+/* Animación de filtrado */
+.caso-card {
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    background: var(--color-surface);
+    border: 1px solid var(--color-border-soft);
+    cursor: pointer;
+    transition: transform var(--transition),
+                box-shadow var(--transition),
+                border-color var(--transition),
+                opacity 0.3s ease;
+}
+
+.caso-card:hover {
+    transform: translateY(-6px);
+    box-shadow: var(--shadow-lg), var(--shadow-cyan);
+    border-color: rgba(0,212,255,0.25);
+}
+
+.caso-card.oculto {
+    display: none;
+}
+
+/* Imagen / Placeholder */
+.caso-img-wrap {
+    position: relative;
+    aspect-ratio: 4/3;
+    overflow: hidden;
+}
+
+/* Imagen real — cuando el Dr. las mande */
+.caso-img-wrap img {
+    width: 100%; height: 100%;
+    object-fit: cover;
+    will-change: transform;
+    transform: translateZ(0);
+    transition: transform 0.4s ease;
+}
+
+.caso-card:hover .caso-img-wrap img { transform: scale(1.04) translateZ(0); }
+
+/* Placeholder mientras no hay foto */
+.caso-placeholder {
+    width: 100%; height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    position: relative;
+}
+
+.caso-placeholder::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image:
+        linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
+    background-size: 24px 24px;
+}
+
+.caso-placeholder--cyan {
+    background: linear-gradient(135deg, rgba(0,212,255,0.06), rgba(0,212,255,0.12));
+    border-bottom: 1px solid rgba(0,212,255,0.15);
+}
+
+.caso-placeholder--violet {
+    background: linear-gradient(135deg, rgba(124,58,237,0.06), rgba(124,58,237,0.12));
+    border-bottom: 1px solid rgba(124,58,237,0.15);
+}
+
+.caso-placeholder--green {
+    background: linear-gradient(135deg, rgba(0,255,136,0.05), rgba(0,255,136,0.10));
+    border-bottom: 1px solid rgba(0,255,136,0.12);
+}
+
+.caso-placeholder i {
+    position: relative;
+    font-size: 2.5rem;
+    opacity: 0.25;
+}
+
+.caso-placeholder--cyan i   { color: var(--color-primary); }
+.caso-placeholder--violet i { color: var(--color-secondary-light); }
+.caso-placeholder--green i  { color: var(--color-accent); }
+
+.caso-placeholder span {
+    position: relative;
+    font-size: var(--fs-sm);
+    font-weight: 600;
+    opacity: 0.5;
+    color: var(--color-text);
+}
+
+.caso-placeholder small {
+    position: relative;
+    font-size: var(--fs-xs);
+    opacity: 0.3;
+    color: var(--color-text-muted);
+}
+
+/* Overlay hover con botón de zoom */
+.caso-overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(7,13,26,0.6);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity var(--transition);
+    backdrop-filter: blur(2px);
+}
+
+.caso-card:hover .caso-overlay { opacity: 1; }
+
+.caso-zoom {
+    width: 52px; height: 52px;
+    border-radius: 50%;
+    background: rgba(0,212,255,0.15);
+    border: 2px solid var(--color-primary);
+    color: var(--color-primary);
+    font-size: 1.1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all var(--transition);
+    transform: scale(0.8);
+}
+
+.caso-card:hover .caso-zoom {
+    transform: scale(1);
+    box-shadow: var(--glow-cyan);
+}
+
+.caso-zoom:hover {
+    background: var(--color-primary);
+    color: var(--color-bg);
+}
+
+/* Info del caso */
+.caso-info {
+    padding: var(--space-sm) var(--space-md) var(--space-md);
+}
+
+.caso-tag {
+    display: inline-flex;
+    align-items: center;
+    font-size: var(--fs-xs);
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    padding: 0.2rem 0.65rem;
+    border-radius: var(--radius-round);
+    margin-bottom: 0.5rem;
+}
+
+.caso-tag--cyan {
+    color: var(--color-primary);
+    background: rgba(0,212,255,0.10);
+    border: 1px solid rgba(0,212,255,0.20);
+}
+
+.caso-tag--violet {
+    color: var(--color-secondary-light);
+    background: rgba(124,58,237,0.10);
+    border: 1px solid rgba(124,58,237,0.20);
+}
+
+.caso-tag--green {
+    color: var(--color-accent);
+    background: rgba(0,255,136,0.08);
+    border: 1px solid rgba(0,255,136,0.18);
+}
+
+.caso-info h3 {
+    font-size: var(--fs-base);
+    font-weight: 700;
+    color: var(--color-white);
+    margin-bottom: 0.3rem;
+    line-height: 1.3;
+}
+
+.caso-info p {
+    font-size: var(--fs-xs);
+    color: var(--color-text-muted);
+    margin: 0;
+    line-height: 1.5;
+}
+
+
+/* ── EMPTY STATE ────────────────────────────────────────────── */
+
+.galeria-empty {
+    text-align: center;
+    padding: var(--space-xl);
+    color: var(--color-text-dim);
+}
+
+.galeria-empty i {
+    font-size: 3rem;
+    margin-bottom: var(--space-sm);
+    display: block;
+    opacity: 0.3;
+}
+
+.galeria-empty p { margin: 0; }
+
+
+/* ── CTA FOTOS ──────────────────────────────────────────────── */
+
+.galeria-cta-fotos-inner {
+    display: flex;
+    align-items: center;
+    gap: var(--space-lg);
+    padding: var(--space-lg) var(--space-xl);
+    background: var(--color-surface);
+    border: 1px solid var(--color-border-soft);
+    border-radius: var(--radius-xl);
+    text-align: left;
+}
+
+.galeria-cta-fotos-icon {
+    width: 72px; height: 72px;
+    border-radius: var(--radius-lg);
+    background: rgba(0,212,255,0.08);
+    border: 1px solid rgba(0,212,255,0.20);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 1.8rem;
+    color: var(--color-primary);
+    flex-shrink: 0;
+}
+
+.galeria-cta-fotos-inner h3 {
+    font-size: var(--fs-lg);
+    color: var(--color-white);
+    margin-bottom: 0.4rem;
+}
+
+.galeria-cta-fotos-inner p {
+    font-size: var(--fs-sm);
+    color: var(--color-text-muted);
+    margin: 0;
+}
+
+.galeria-cta-fotos-inner .btn { flex-shrink: 0; }
+
+@media (max-width: 768px) {
+    .galeria-cta-fotos-inner {
+        flex-direction: column;
+        text-align: center;
+        padding: var(--space-md);
+    }
+}
+
+
+/* ── LIGHTBOX DE GALERÍA ────────────────────────────────────── */
+
+.galeria-lightbox {
+    display: none;
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+    align-items: center;
+    justify-content: center;
+    padding: var(--space-md);
+}
+
+.galeria-lightbox.open { display: flex; }
+
+.galeria-lightbox-backdrop {
+    position: absolute;
+    inset: 0;
+    background: rgba(4,9,18,0.95);
+    backdrop-filter: blur(12px);
+    cursor: pointer;
+    animation: fadeIn 0.2s ease;
+}
+
+.galeria-lightbox-content {
+    position: relative;
+    z-index: 1;
+    display: grid;
+    grid-template-columns: 1.2fr 1fr;
+    gap: var(--space-lg);
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-xl);
+    padding: var(--space-lg);
+    max-width: 900px;
+    width: 100%;
+    max-height: 90vh;
+    overflow-y: auto;
+    animation: modalIn 0.3s cubic-bezier(0.34,1.56,0.64,1);
+    box-shadow: var(--shadow-lg), var(--shadow-cyan);
+}
+
+.galeria-lightbox-close {
+    position: absolute;
+    top: var(--space-sm);
+    right: var(--space-sm);
+    width: 40px; height: 40px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.08);
+    border: 1px solid rgba(255,255,255,0.15);
+    color: var(--color-text-muted);
+    font-size: 1rem;
+    display: flex; align-items: center; justify-content: center;
+    transition: all var(--transition);
+    z-index: 2;
+}
+
+.galeria-lightbox-close:hover {
+    background: var(--color-coral);
+    border-color: var(--color-coral);
+    color: #fff;
+    transform: rotate(90deg);
+}
+
+.galeria-lightbox-img-wrap {
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    aspect-ratio: 4/3;
+}
+
+.galeria-lightbox-img-wrap img {
+    width: 100%; height: 100%;
+    object-fit: cover;
+}
+
+.galeria-lightbox-placeholder {
+    width: 100%; height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: var(--space-sm);
+    background: rgba(0,212,255,0.05);
+    border: 1px dashed rgba(0,212,255,0.2);
+    border-radius: var(--radius-lg);
+}
+
+.galeria-lightbox-placeholder i {
+    font-size: 4rem;
+    color: var(--color-primary);
+    opacity: 0.3;
+}
+
+.galeria-lightbox-info {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding-right: var(--space-sm);
+}
+
+.galeria-lightbox-tipo {
+    display: inline-flex;
+    font-size: var(--fs-xs);
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--color-primary);
+    background: rgba(0,212,255,0.10);
+    border: 1px solid rgba(0,212,255,0.20);
+    padding: 0.25rem 0.75rem;
+    border-radius: var(--radius-round);
+    margin-bottom: var(--space-sm);
+    width: fit-content;
+}
+
+.galeria-lightbox-titulo {
+    font-size: var(--fs-xl);
+    color: var(--color-white);
+    margin-bottom: var(--space-sm);
+    line-height: 1.2;
+}
+
+.galeria-lightbox-desc {
+    font-size: var(--fs-sm);
+    color: var(--color-text-muted);
+    line-height: 1.8;
+    margin-bottom: 0;
+}
+
+@media (max-width: 768px) {
+    .galeria-lightbox-content {
+        grid-template-columns: 1fr;
+        padding: var(--space-md);
+    }
+    .galeria-lightbox-img-wrap { aspect-ratio: 16/10; }
+    .galeria-lightbox-titulo { font-size: var(--fs-lg); }
+}
