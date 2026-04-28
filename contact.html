@@ -179,26 +179,42 @@
                     </div>
                 </div>
 
-                <!-- FORMULARIO -->
+                <!-- FORMULARIO NETLIFY -->
                 <div class="contact-form">
                     <h2>Escríbenos directamente</h2>
                     <p style="font-size: var(--fs-sm); margin-bottom: var(--space-md);">
-                        Al enviar el formulario se abrirá tu aplicación de correo con el
-                        mensaje listo. También puedes escribirnos por
+                        Completa el formulario y te contactaremos a la brevedad. También puedes escribirnos por
                         <a href="https://wa.me/593991746309" target="_blank" rel="noopener noreferrer"
                             style="color: var(--color-primary); font-weight: 600;">WhatsApp</a>.
                     </p>
-                    <form id="contact-form" class="form" novalidate>
+
+                    <form
+                        name="contacto-clinidental"
+                        method="POST"
+                        data-netlify="true"
+                        netlify-honeypot="bot-field"
+                        action="/gracias.html"
+                        class="form"
+                        id="contact-form"
+                        novalidate>
+
+                        <!-- Campo oculto requerido por Netlify -->
+                        <input type="hidden" name="form-name" value="contacto-clinidental">
+
+                        <!-- Honeypot anti-spam — oculto para humanos -->
+                        <p style="display:none">
+                            <label>No llenar: <input name="bot-field"></label>
+                        </p>
 
                         <div class="form-group">
-                            <label for="name">Nombre completo</label>
+                            <label for="name">Nombre completo <span aria-hidden="true">*</span></label>
                             <input type="text" id="name" name="name" required
                                 autocomplete="name"
-                                placeholder="Escribe tu nombre completo">
+                                placeholder="Tu nombre completo">
                         </div>
 
                         <div class="form-group">
-                            <label for="email">Tu correo electrónico</label>
+                            <label for="email">Correo electrónico <span aria-hidden="true">*</span></label>
                             <input type="email" id="email" name="email" required
                                 autocomplete="email"
                                 placeholder="ejemplo@correo.com">
@@ -212,16 +228,18 @@
                         </div>
 
                         <div class="form-group">
-                            <label for="reason">Motivo de la consulta</label>
+                            <label for="reason">Motivo de la consulta <span aria-hidden="true">*</span></label>
                             <select id="reason" name="reason" required>
                                 <option value="">Selecciona una opción</option>
-                                <option value="Agendar cita">Agendar cita</option>
-                                <option value="Información sobre implantes">Información sobre implantes</option>
-                                <option value="Información sobre periodoncia">Información sobre periodoncia</option>
-                                <option value="Información sobre ortodoncia">Información sobre ortodoncia</option>
-                                <option value="Información sobre estética dental">Información sobre estética dental</option>
-                                <option value="Solicitar presupuesto">Solicitar presupuesto</option>
-                                <option value="Urgencia dental">Urgencia dental</option>
+                                <option value="Agendar consulta">Agendar consulta</option>
+                                <option value="Implantología Quirúrgica">Implantología Quirúrgica</option>
+                                <option value="Periodoncia">Periodoncia</option>
+                                <option value="Cirugía Oral">Cirugía Oral</option>
+                                <option value="Endodoncia">Endodoncia</option>
+                                <option value="Ortodoncia y Ortopedia Maxilofacial">Ortodoncia y Ortopedia Maxilofacial</option>
+                                <option value="Estética Dental">Estética Dental</option>
+                                <option value="Segunda opinión clínica">Segunda opinión clínica</option>
+                                <option value="Urgencia odontológica">Urgencia odontológica</option>
                                 <option value="Otro">Otro</option>
                             </select>
                         </div>
@@ -229,11 +247,15 @@
                         <div class="form-group">
                             <label for="message">Mensaje</label>
                             <textarea id="message" name="message" rows="5"
-                                placeholder="Cuéntanos en qué podemos ayudarte..."></textarea>
+                                placeholder="Cuéntanos brevemente tu caso o consulta..."></textarea>
                         </div>
 
-                        <button type="submit" class="btn btn-primary">
-                            <i class="fas fa-envelope" aria-hidden="true"></i> Enviar por correo
+                        <!-- Estado de envío -->
+                        <div id="form-status" style="display:none" role="alert" aria-live="polite"></div>
+
+                        <button type="submit" class="btn btn-primary" id="form-submit">
+                            <i class="fas fa-paper-plane" aria-hidden="true"></i>
+                            Enviar consulta
                         </button>
 
                     </form>
@@ -406,6 +428,31 @@
     <!-- JS — un solo script, al final, sin inline -->
     <script src="js/main.js" defer></script>
 
+<script>
+    (function(){
+        var form   = document.getElementById('contact-form');
+        var status = document.getElementById('form-status');
+        var btn    = document.getElementById('form-submit');
+        if (!form) return;
+        form.addEventListener('submit', function(e) {
+            var required = form.querySelectorAll('[required]');
+            var valid = true;
+            required.forEach(function(el) {
+                if (!el.value.trim()) { el.style.borderColor='rgba(255,107,107,0.6)'; valid=false; }
+                else { el.style.borderColor=''; }
+            });
+            if (!valid) {
+                e.preventDefault();
+                status.style.display='block';
+                status.style.color='#ff6b6b';
+                status.textContent='Por favor completa los campos obligatorios.';
+                return;
+            }
+            btn.disabled=true;
+            btn.innerHTML='<i class="fas fa-spinner fa-spin"></i> Enviando...';
+        });
+    })();
+    </script>
 </body>
 
 </html>

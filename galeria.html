@@ -2,79 +2,66 @@
 <html lang="es">
 
 <head>
-    <!-- META & SEO -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Galería de casos clínicos — Implantes, Periodoncia, Estética | Clinidental</title>
-    <meta name="description" content="Casos clínicos reales del Dr. Jordy Alejandro Castillo Trujillo: implantes dentales, tratamientos periodontales, estética dental y cirugía oral en la Provincia Bolívar, Ecuador. Resultados con tecnología 3D.">
-    <meta name="keywords" content="casos clínicos implantes Ecuador, resultados periodoncia Bolívar, fotos implantes dentales, galería odontología Ecuador, resultados estética dental Bolívar">
-    <meta name="author" content="Dr. Jordy Alejandro Castillo Trujillo — Clinidental">
+    <title>Galería de casos clínicos — Clinidental | Dr. Jordy Alejandro Castillo Trujillo</title>
+    <meta name="description" content="Casos clínicos documentados del consultorio Clinidental. Implantología quirúrgica, periodoncia, cirugía oral, endodoncia, ortodoncia y estética dental en San Miguel de Bolívar, Ecuador.">
     <meta name="robots" content="index, follow">
-    <meta name="geo.region" content="EC-B">
-    <meta name="geo.placename" content="San Miguel de Bolívar, Provincia Bolívar, Ecuador">
     <link rel="canonical" href="https://clinidental.com/galeria.html">
-
-    <!-- Open Graph -->
-    <meta property="og:title" content="Galería de casos clínicos — Implantes, Periodoncia, Estética | Clinidental">
-    <meta property="og:description" content="Casos clínicos reales del Dr. Jordy Alejandro Castillo Trujillo: implantes dentales, tratamientos periodontales, estética dental y cirugía oral en la Provincia Bolívar, Ecuador. Resultados con tecnología 3D.">
+    <meta property="og:title" content="Galería de casos clínicos — Clinidental">
+    <meta property="og:description" content="Casos clínicos documentados: implantes, periodoncia, cirugía oral, endodoncia, ortodoncia y estética dental.">
     <meta property="og:image" content="assets/img/hero/clinidental-hero.webp">
     <meta property="og:type" content="website">
-    <meta property="og:url" content="https://clinidental.com/galeria.html">
     <meta property="og:locale" content="es_EC">
-    <meta property="og:site_name" content="Clinidental">
 
-    <!-- Twitter Card -->
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Galería de casos clínicos — Implantes, Periodoncia, Estética | Clinidental">
-    <meta name="twitter:description" content="Casos clínicos reales del Dr. Jordy Alejandro Castillo Trujillo: implantes dentales, tratamientos periodontales, estética dental y cirugía oral en la Provincia Bolívar, Ecuador. Resultados con tecnología 3D.">
-    <meta name="twitter:image" content="assets/img/hero/clinidental-hero.webp">
+    <!-- Schema -->
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"ImageGallery","name":"Galería de casos clínicos — Clinidental","description":"Casos clínicos documentados del Dr. Jordy Alejandro Castillo Trujillo.","url":"https://clinidental.com/galeria.html","author":{"@type":"Person","name":"Dr. Jordy Alejandro Castillo Trujillo","jobTitle":"Especialista en Periodoncia e Implantología Quirúrgica"}}
+    </script>
 
-    <!-- FAVICONS -->
+    <!-- Favicons -->
     <link rel="apple-touch-icon" sizes="180x180" href="assets/favicon/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon/favicon-16x16.png">
     <link rel="manifest" href="assets/favicon/site.webmanifest">
     <meta name="theme-color" content="#00d4ff">
 
-    <!-- Google Fonts -->
+    <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap"
-        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
 
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
-    <!-- CSS -->
+
+    <!-- LIGHTBOX -->
+    <div class="gl-lightbox" id="gl-lightbox" role="dialog" aria-modal="true" aria-label="Foto ampliada">
+        <div class="gl-lightbox-backdrop" id="gl-lightbox-backdrop"></div>
+        <div class="gl-lightbox-content">
+            <button class="gl-lightbox-close" id="gl-lightbox-close" aria-label="Cerrar">
+                <i class="fas fa-times"></i>
+            </button>
+            <div class="gl-lightbox-img-wrap" id="gl-lightbox-img">
+                <!-- imagen o placeholder se inserta aquí -->
+            </div>
+            <div class="gl-lightbox-info" id="gl-lightbox-info">
+                <h3 id="gl-lightbox-title"></h3>
+                <p id="gl-lightbox-desc"></p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Splide.js -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/css/splide.min.css">
+
+    <!-- CSS del proyecto -->
     <link rel="stylesheet" href="css/base.css">
     <link rel="stylesheet" href="css/layout.css">
     <link rel="stylesheet" href="css/components.css">
     <link rel="stylesheet" href="css/themes.css">
     <link rel="stylesheet" href="css/utilities.css">
     <link rel="stylesheet" href="css/galeria.css">
-
-    <!-- Schema.org — ImageGallery -->
-    <script type="application/ld+json">
-    {
-        "@context": "https://schema.org",
-        "@type": "ImageGallery",
-        "name": "Galería de casos clínicos — Clinidental",
-        "description": "Casos clínicos reales del Dr. Jordy Alejandro Castillo Trujillo: implantes, periodoncia, estética dental y cirugía oral.",
-        "url": "https://clinidental.com/galeria.html",
-        "author": {
-            "@type": "Person",
-            "name": "Dr. Jordy Alejandro Castillo Trujillo",
-            "jobTitle": "Especialista en Periodoncia e Implantología Quirúrgica"
-        },
-        "provider": {
-            "@type": "Dentist",
-            "name": "Clinidental",
-            "url": "https://clinidental.com"
-        }
-    }
-    </script>
-    <!-- model-viewer (Google) — visor 3D interactivo con AR en móvil -->
-    <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/3.4.0/model-viewer.min.js"></script>
 </head>
 
 <body>
@@ -105,307 +92,539 @@
 
     <main id="main">
 
-        <!-- HERO PEQUEÑO -->
-        <section class="hero hero-small" aria-label="Galería de casos"
-            style="background-image: url('assets/img/hero/clinidental-hero.webp');">
-            <div class="overlay" aria-hidden="true"></div>
-            <div class="hero-content container">
-                <h1>Galería de <span>casos clínicos</span></h1>
-                <p class="lead">
-                    Resultados reales de pacientes reales. Cada caso refleja precisión
-                    quirúrgica, tecnología 3D y dedicación al detalle.
-                </p>
+        <!-- ══ HERO VIDEO ═══════════════════════════════════════ -->
+        <section class="gl-hero" aria-label="Galería de casos clínicos">
+
+            <!-- VIDEO DE FONDO — reemplaza src con tu video -->
+            <video class="gl-hero-video" autoplay muted loop playsinline>
+                <!-- REEMPLAZA CON TU VIDEO REAL cuando lo tengas -->
+            <source src="https://res.cloudinary.com/dvukaadvx/video/upload/v1777136330/samples/dance-2.mp4" type="video/mp4">
+            </video>
+
+            <!-- Fallback si no hay video todavía -->
+            <div class="gl-hero-fallback" aria-hidden="true"></div>
+
+            <div class="gl-hero-overlay" aria-hidden="true"></div>
+
+            <div class="gl-hero-content">
+                <span class="gl-hero-tag">Clinidental</span>
+                <h1 class="gl-hero-title">Casos clínicos</h1>
+                <p class="gl-hero-sub">Dr. Jordy Alejandro Castillo Trujillo</p>
             </div>
+
+            <!-- Indicador de scroll -->
+            <div class="gl-hero-scroll" aria-hidden="true">
+                <i class="fas fa-chevron-down"></i>
+            </div>
+
         </section>
 
-        <!-- INTRO + FILTROS -->
-        <section class="section section--surface" aria-labelledby="galeria-intro">
-            <div class="container text-center">
-                <span class="section-tag reveal">
-                    <i class="fas fa-images" aria-hidden="true"></i>
-                    Casos clínicos
-                </span>
-                <h2 class="reveal" id="galeria-intro">
-                    Trabajo que habla
-                    <span class="text-gradient">por sí solo</span>
-                </h2>
-                <p class="section-subtitle reveal">
-                    Haz clic en cualquier imagen para verla en detalle.
-                    Las fotos son de pacientes de la Provincia Bolívar con su autorización.
-                </p>
+        <!-- ══ GALERÍA POR ESPECIALIDAD ═════════════════════════ -->
+        <div class="gl-container">
 
-                <!-- Filtros por categoría -->
-                <div class="galeria-filtros reveal mt-md" role="group" aria-label="Filtrar por categoría">
-                    <button class="filtro-btn active" data-filtro="todos">
-                        <i class="fas fa-th" aria-hidden="true"></i> Todos
-                    </button>
-                    <button class="filtro-btn" data-filtro="implantes">
-                        <i class="fas fa-tooth" aria-hidden="true"></i> Implantes
-                    </button>
-                    <button class="filtro-btn" data-filtro="periodoncia">
-                        <i class="fas fa-teeth" aria-hidden="true"></i> Periodoncia
-                    </button>
-                    <button class="filtro-btn" data-filtro="estetica">
-                        <i class="fas fa-star" aria-hidden="true"></i> Estética
-                    </button>
-                    <button class="filtro-btn" data-filtro="cirugia">
-                        <i class="fas fa-user-md" aria-hidden="true"></i> Cirugía oral
-                    </button>
-                    <button class="filtro-btn" data-filtro="general">
-                        <i class="fas fa-stethoscope" aria-hidden="true"></i> General
-                    </button>
-                </div>
-            </div>
-        </section>
+            <!-- ── IMPLANTOLOGÍA ──────────────────────────────── -->
+            <section class="gl-section reveal" aria-labelledby="esp-implantes">
 
-        <div class="section-divider"></div>
-
-        <!-- GRID DE CASOS -->
-        <section class="section" aria-labelledby="galeria-grid-title">
-            <div class="container">
-                <h2 class="sr-only" id="galeria-grid-title">Galería de casos clínicos</h2>
-
-                <div class="galeria-grid" id="galeria-grid">
-
-                    <!-- IMPLANTES -->
-                    <article class="caso-card reveal" data-categoria="implantes"
-                        data-titulo="Implante unitario — sector anterior"
-                        data-desc="Implante de titanio en zona 21 con corona de zirconio. Planificación 3D preoperatoria con modelo impreso en resina. Paciente de 42 años, Guaranda."
-                        data-tipo="Implantología Quirúrgica">
-                        <div class="caso-img-wrap">
-                            <div class="caso-placeholder caso-placeholder--cyan">
-                                <i class="fas fa-tooth" aria-hidden="true"></i>
-                                <span>Foto del caso</span>
-                                <small>Imagen en proceso de autorización del paciente</small>
-                            </div>
-                            <div class="caso-overlay">
-                                <button class="caso-zoom" aria-label="Ver caso en detalle">
-                                    <i class="fas fa-expand-alt" aria-hidden="true"></i>
-                                </button>
-                            </div>
-                        </div>
-                        <div class="caso-info">
-                            <span class="caso-tag caso-tag--cyan">Implantología</span>
-                            <h3>Implante unitario — sector anterior</h3>
-                            <p>Implante con corona de zirconio. Planificación 3D. Guaranda.</p>
-                        </div>
-                    </article>
-
-                    <article class="caso-card reveal reveal-delay-1" data-categoria="implantes"
-                        data-titulo="Rehabilitación con múltiples implantes"
-                        data-desc="Rehabilitación de sector posterior inferior con dos implantes contiguos. Regeneración ósea guiada previa. Paciente de 55 años, San Miguel."
-                        data-tipo="Implantología Quirúrgica">
-                        <div class="caso-img-wrap">
-                            <div class="caso-placeholder caso-placeholder--cyan">
-                                <i class="fas fa-tooth" aria-hidden="true"></i>
-                                <span>Foto del caso</span>
-                                <small>Imagen en proceso de autorización del paciente</small>
-                            </div>
-                            <div class="caso-overlay">
-                                <button class="caso-zoom" aria-label="Ver caso en detalle">
-                                    <i class="fas fa-expand-alt" aria-hidden="true"></i>
-                                </button>
-                            </div>
-                        </div>
-                        <div class="caso-info">
-                            <span class="caso-tag caso-tag--cyan">Implantología</span>
-                            <h3>Implantes múltiples — sector posterior</h3>
-                            <p>Dos implantes contiguos con regeneración ósea. San Miguel.</p>
-                        </div>
-                    </article>
-
-                    <article class="caso-card reveal reveal-delay-2" data-categoria="implantes"
-                        data-titulo="Implante con modelo 3D preoperatorio"
-                        data-desc="Planificación completa con escáner intraoral y modelo de resina impreso en Elegoo Mars Ultra 5. La guía quirúrgica permitió una cirugía de mínima invasión. Paciente de 38 años, Caluma."
-                        data-tipo="Implantología Quirúrgica + Tecnología 3D">
-                        <div class="caso-img-wrap">
-                            <div class="caso-placeholder caso-placeholder--green">
-                                <i class="fas fa-cube" aria-hidden="true"></i>
-                                <span>Modelo 3D + Caso</span>
-                                <small>Imagen en proceso de autorización del paciente</small>
-                            </div>
-                            <div class="caso-overlay">
-                                <button class="caso-zoom" aria-label="Ver caso en detalle">
-                                    <i class="fas fa-expand-alt" aria-hidden="true"></i>
-                                </button>
-                            </div>
-                        </div>
-                        <div class="caso-info">
-                            <span class="caso-tag caso-tag--green">3D + Implante</span>
-                            <h3>Implante guiado con modelo 3D</h3>
-                            <p>Planificación digital completa. Mínima invasión. Caluma.</p>
-                        </div>
-                    </article>
-
-                    <!-- PERIODONCIA -->
-                    <article class="caso-card reveal" data-categoria="periodoncia"
-                        data-titulo="Tratamiento de periodontitis moderada"
-                        data-desc="Paciente con periodontitis moderada generalizada. Tratamiento mediante raspado y alisado radicular en 4 cuadrantes. Control a los 3 meses con notable mejora en profundidad de sondaje. Chillanes."
-                        data-tipo="Periodoncia">
-                        <div class="caso-img-wrap">
-                            <div class="caso-placeholder caso-placeholder--violet">
-                                <i class="fas fa-teeth" aria-hidden="true"></i>
-                                <span>Foto del caso</span>
-                                <small>Imagen en proceso de autorización del paciente</small>
-                            </div>
-                            <div class="caso-overlay">
-                                <button class="caso-zoom" aria-label="Ver caso en detalle">
-                                    <i class="fas fa-expand-alt" aria-hidden="true"></i>
-                                </button>
-                            </div>
-                        </div>
-                        <div class="caso-info">
-                            <span class="caso-tag caso-tag--violet">Periodoncia</span>
-                            <h3>Periodontitis moderada — RAR</h3>
-                            <p>Raspado y alisado 4 cuadrantes. Control a 3 meses. Chillanes.</p>
-                        </div>
-                    </article>
-
-                    <article class="caso-card reveal reveal-delay-1" data-categoria="periodoncia"
-                        data-titulo="Cirugía periodontal — alargamiento coronal"
-                        data-desc="Alargamiento coronal para exposición de estructura dental sana previo a restauración con corona. Caso combinado de periodoncia y prostodoncia. Paciente de 45 años, Echeandia."
-                        data-tipo="Periodoncia — Cirugía">
-                        <div class="caso-img-wrap">
-                            <div class="caso-placeholder caso-placeholder--violet">
-                                <i class="fas fa-teeth" aria-hidden="true"></i>
-                                <span>Foto del caso</span>
-                                <small>Imagen en proceso de autorización del paciente</small>
-                            </div>
-                            <div class="caso-overlay">
-                                <button class="caso-zoom" aria-label="Ver caso en detalle">
-                                    <i class="fas fa-expand-alt" aria-hidden="true"></i>
-                                </button>
-                            </div>
-                        </div>
-                        <div class="caso-info">
-                            <span class="caso-tag caso-tag--violet">Periodoncia</span>
-                            <h3>Alargamiento coronal</h3>
-                            <p>Previo a restauración con corona. Echeandia.</p>
-                        </div>
-                    </article>
-
-                    <!-- ESTÉTICA -->
-                    <article class="caso-card reveal reveal-delay-2" data-categoria="estetica"
-                        data-titulo="Diseño de sonrisa con carillas"
-                        data-desc="Diseño digital de sonrisa y colocación de 6 carillas de porcelana en sector anterior. El resultado final se validó con modelo 3D antes del tratamiento. Paciente de 30 años, Guaranda."
-                        data-tipo="Estética dental">
-                        <div class="caso-img-wrap">
-                            <div class="caso-placeholder caso-placeholder--green">
-                                <i class="fas fa-star" aria-hidden="true"></i>
-                                <span>Foto del caso</span>
-                                <small>Imagen en proceso de autorización del paciente</small>
-                            </div>
-                            <div class="caso-overlay">
-                                <button class="caso-zoom" aria-label="Ver caso en detalle">
-                                    <i class="fas fa-expand-alt" aria-hidden="true"></i>
-                                </button>
-                            </div>
-                        </div>
-                        <div class="caso-info">
-                            <span class="caso-tag caso-tag--green">Estética</span>
-                            <h3>Diseño de sonrisa — 6 carillas</h3>
-                            <p>Carillas de porcelana. Validación digital previa. Guaranda.</p>
-                        </div>
-                    </article>
-
-                    <article class="caso-card reveal" data-categoria="estetica"
-                        data-titulo="Blanqueamiento profesional en consultorio"
-                        data-desc="Blanqueamiento dental en consultorio con gel de peróxido de hidrógeno al 35%. Resultado visible en una sola sesión. Control de sensibilidad con aplicación de flúor posterior. Las Naves."
-                        data-tipo="Estética dental">
-                        <div class="caso-img-wrap">
-                            <div class="caso-placeholder caso-placeholder--green">
-                                <i class="fas fa-star" aria-hidden="true"></i>
-                                <span>Foto del caso</span>
-                                <small>Imagen en proceso de autorización del paciente</small>
-                            </div>
-                            <div class="caso-overlay">
-                                <button class="caso-zoom" aria-label="Ver caso en detalle">
-                                    <i class="fas fa-expand-alt" aria-hidden="true"></i>
-                                </button>
-                            </div>
-                        </div>
-                        <div class="caso-info">
-                            <span class="caso-tag caso-tag--green">Estética</span>
-                            <h3>Blanqueamiento profesional</h3>
-                            <p>Resultado en una sesión. Control de sensibilidad. Las Naves.</p>
-                        </div>
-                    </article>
-
-                    <!-- CIRUGÍA ORAL -->
-                    <article class="caso-card reveal reveal-delay-1" data-categoria="cirugia"
-                        data-titulo="Extracción de tercer molar inferior impactado"
-                        data-desc="Extracción quirúrgica de molar del juicio inferior en posición mesioangular grado II. Planificación con radiografía panorámica. Recuperación sin complicaciones. Salinas."
-                        data-tipo="Cirugía oral">
-                        <div class="caso-img-wrap">
-                            <div class="caso-placeholder caso-placeholder--violet">
-                                <i class="fas fa-user-md" aria-hidden="true"></i>
-                                <span>Rx + Caso</span>
-                                <small>Imagen en proceso de autorización del paciente</small>
-                            </div>
-                            <div class="caso-overlay">
-                                <button class="caso-zoom" aria-label="Ver caso en detalle">
-                                    <i class="fas fa-expand-alt" aria-hidden="true"></i>
-                                </button>
-                            </div>
-                        </div>
-                        <div class="caso-info">
-                            <span class="caso-tag caso-tag--violet">Cirugía oral</span>
-                            <h3>Tercer molar impactado</h3>
-                            <p>Extracción quirúrgica. Planificación radiológica. Salinas.</p>
-                        </div>
-                    </article>
-
-                    <!-- GENERAL -->
-                    <article class="caso-card reveal reveal-delay-2" data-categoria="general"
-                        data-titulo="Rehabilitación oral completa"
-                        data-desc="Tratamiento integral: endodoncia en piezas 14 y 15, prótesis fija de 3 unidades y profilaxis completa. Rehabilitación funcional y estética en una paciente de 60 años. San Miguel."
-                        data-tipo="Odontología general">
-                        <div class="caso-img-wrap">
-                            <div class="caso-placeholder caso-placeholder--cyan">
-                                <i class="fas fa-stethoscope" aria-hidden="true"></i>
-                                <span>Foto del caso</span>
-                                <small>Imagen en proceso de autorización del paciente</small>
-                            </div>
-                            <div class="caso-overlay">
-                                <button class="caso-zoom" aria-label="Ver caso en detalle">
-                                    <i class="fas fa-expand-alt" aria-hidden="true"></i>
-                                </button>
-                            </div>
-                        </div>
-                        <div class="caso-info">
-                            <span class="caso-tag caso-tag--cyan">General</span>
-                            <h3>Rehabilitación oral completa</h3>
-                            <p>Endodoncia + prótesis fija + profilaxis. San Miguel.</p>
-                        </div>
-                    </article>
-
-                </div>
-                <!-- /galeria-grid -->
-
-                <!-- Mensaje cuando no hay resultados del filtro -->
-                <div class="galeria-empty" id="galeria-empty" hidden>
-                    <i class="fas fa-search" aria-hidden="true"></i>
-                    <p>No hay casos en esta categoría aún. Pronto añadiremos más.</p>
-                </div>
-
-                <!-- CTA añadir fotos reales -->
-                <div class="galeria-cta-fotos reveal mt-xl text-center">
-                    <div class="galeria-cta-fotos-inner">
-                        <div class="galeria-cta-fotos-icon">
-                            <i class="fas fa-camera" aria-hidden="true"></i>
-                        </div>
-                        <div>
-                            <h3>¿Quieres ver tu caso aquí?</h3>
-                            <p>Con tu autorización, los casos exitosos pasan a formar parte de la galería
-                                como testimonio real de los resultados de Clinidental.</p>
-                        </div>
-                        <a href="contact.html" class="btn btn-primary">
-                            <i class="fas fa-calendar-check" aria-hidden="true"></i>
-                            Agendar consulta
-                        </a>
+                <div class="gl-section-header">
+                    <div class="gl-esp-icon gl-esp-icon--cyan">
+                        <i class="fas fa-tooth" aria-hidden="true"></i>
+                    </div>
+                    <div>
+                        <h2 id="esp-implantes">Implantología Quirúrgica</h2>
+                        <p>Dr. Jordy Alejandro Castillo Trujillo — Especialista</p>
                     </div>
                 </div>
 
+                <!-- CASOS — añade o quita .gl-caso según necesites -->
+                <div class="gl-splide splide" id="splide-implantes">
+                    <div class="splide__track">
+                        <ul class="splide__list">
+
+                            <!-- ══ CASO — edita solo título, descripción y fotos ══ -->
+                            <li class="splide__slide">
+                                <div class="gl-caso">
+                                    <div class="gl-caso-fotos gl-clickable">
+                                        <img src="assets/img/galeria/implante.webp" alt="">
+                                        <img src="assets/img/galeria/implante-2.webp" alt="">
+                                        <img src="assets/img/galeria/implante-3.webp" alt="">
+                                        <div class="gl-caso-ph gl-caso-ph--cyan">
+                                            <i class="fas fa-tooth"></i>
+                                            <span>Fotos próximamente</span>
+                                        </div>
+                                        <div class="gl-caso-badge gl-caso-badge--cyan">Implantología</div>
+                                    </div>
+                                    <div class="gl-caso-info">
+                                        <!-- TÍTULO -->
+                                        <h3>Implante unitario — zona 21</h3>
+                                        <!-- DESCRIPCIÓN -->
+                                        <p>Colocación de implante oseointegrado con guía quirúrgica digital. Planificación tomográfica preoperatoria. Seguimiento clínico y radiológico a los 6 meses.</p>
+                                    </div>
+                                </div>
+                            </li>
+                            <!-- ══ FIN CASO ══ -->
+
+                            <!-- ══ CASO — edita solo título, descripción y fotos ══ -->
+                            <li class="splide__slide">
+                                <div class="gl-caso">
+                                    <div class="gl-caso-fotos gl-clickable">
+                                        <!-- FOTOS: <img src="assets/img/galeria/nombre.webp" alt=""> -->
+                                        <div class="gl-caso-ph gl-caso-ph--cyan">
+                                            <i class="fas fa-tooth"></i>
+                                            <span>Fotos próximamente</span>
+                                        </div>
+                                        <div class="gl-caso-badge gl-caso-badge--cyan">Implantología</div>
+                                    </div>
+                                    <div class="gl-caso-info">
+                                        <h3>Implantes múltiples — sector posterior</h3>
+                                        <p>Rehabilitación con dos implantes contiguos. Regeneración ósea guiada previa. Oseointegración confirmada al mes 8.</p>
+                                    </div>
+                                </div>
+                            </li>
+                            <!-- ══ FIN CASO ══ -->
+
+                            <!-- ══ CASO — edita solo título, descripción y fotos ══ -->
+                            <li class="splide__slide">
+                                <div class="gl-caso">
+                                    <div class="gl-caso-fotos gl-clickable">
+                                        <!-- FOTOS: <img src="assets/img/galeria/nombre.webp" alt=""> -->
+                                        <div class="gl-caso-ph gl-caso-ph--cyan">
+                                            <i class="fas fa-tooth"></i>
+                                            <span>Fotos próximamente</span>
+                                        </div>
+                                        <div class="gl-caso-badge gl-caso-badge--cyan">Implantología</div>
+                                    </div>
+                                    <div class="gl-caso-info">
+                                        <h3>Carga inmediata — maxilar superior</h3>
+                                        <p>Colocación de 4 implantes con carga inmediata. CBCT preoperatorio. Estabilidad primaria confirmada.</p>
+                                    </div>
+                                </div>
+                            </li>
+                            <!-- ══ FIN CASO ══ -->
+
+                        </ul>
+                    </div>
+                </div>
+
+            </section>
+
+            <!-- ── PERIODONCIA ───────────────────────────────── -->
+            <section class="gl-section reveal" aria-labelledby="esp-periodoncia">
+
+                <div class="gl-section-header">
+                    <div class="gl-esp-icon gl-esp-icon--violet">
+                        <i class="fas fa-teeth" aria-hidden="true"></i>
+                    </div>
+                    <div>
+                        <h2 id="esp-periodoncia">Periodoncia</h2>
+                        <p>Dr. Jordy Alejandro Castillo Trujillo — Especialista</p>
+                    </div>
+                </div>
+
+                <div class="gl-splide splide" id="splide-periodoncia">
+                    <div class="splide__track">
+                        <ul class="splide__list">
+
+                            <!-- ══ CASO ══ -->
+                            <li class="splide__slide">
+                                <div class="gl-caso">
+                                    <div class="gl-caso-fotos gl-clickable">
+                                        <!-- FOTOS: <img src="assets/img/galeria/nombre.webp" alt=""> -->
+                                        <div class="gl-caso-ph gl-caso-ph--violet">
+                                            <i class="fas fa-teeth"></i>
+                                            <span>Fotos próximamente</span>
+                                        </div>
+                                        <div class="gl-caso-badge gl-caso-badge--violet">Periodoncia</div>
+                                    </div>
+                                    <div class="gl-caso-info">
+                                        <h3>Periodontitis moderada generalizada — RAR</h3>
+                                        <p>Raspado y alisado radicular en 4 cuadrantes bajo anestesia local. Reducción de la profundidad de sondaje en control a los 3 meses.</p>
+                                    </div>
+                                </div>
+                            </li>
+                            <!-- ══ FIN CASO ══ -->
+
+                            <!-- ══ CASO ══ -->
+                            <li class="splide__slide">
+                                <div class="gl-caso">
+                                    <div class="gl-caso-fotos gl-clickable">
+                                        <!-- FOTOS: <img src="assets/img/galeria/nombre.webp" alt=""> -->
+                                        <div class="gl-caso-ph gl-caso-ph--violet">
+                                            <i class="fas fa-teeth"></i>
+                                            <span>Fotos próximamente</span>
+                                        </div>
+                                        <div class="gl-caso-badge gl-caso-badge--violet">Periodoncia</div>
+                                    </div>
+                                    <div class="gl-caso-info">
+                                        <h3>Alargamiento coronal</h3>
+                                        <p>Previo a restauración protésica. Cicatrización sin complicaciones a las 6 semanas del procedimiento.</p>
+                                    </div>
+                                </div>
+                            </li>
+                            <!-- ══ FIN CASO ══ -->
+
+                        </ul>
+                    </div>
+                </div>
+
+            </section>
+
+            <!-- ── CIRUGÍA ORAL ──────────────────────────────── -->
+            <section class="gl-section reveal" aria-labelledby="esp-cirugia">
+
+                <div class="gl-section-header">
+                    <div class="gl-esp-icon gl-esp-icon--violet">
+                        <i class="fas fa-user-md" aria-hidden="true"></i>
+                    </div>
+                    <div>
+                        <h2 id="esp-cirugia">Cirugía Oral</h2>
+                        <p>Dr. Jordy Alejandro Castillo Trujillo</p>
+                    </div>
+                </div>
+
+                <div class="gl-splide splide" id="splide-cirugia">
+                    <div class="splide__track">
+                        <ul class="splide__list">
+
+                            <!-- ══ CASO ══ -->
+                            <li class="splide__slide">
+                                <div class="gl-caso">
+                                    <div class="gl-caso-fotos gl-clickable">
+                                        <!-- FOTOS: <img src="assets/img/galeria/nombre.webp" alt=""> -->
+                                        <div class="gl-caso-ph gl-caso-ph--violet">
+                                            <i class="fas fa-user-md"></i>
+                                            <span>Fotos próximamente</span>
+                                        </div>
+                                        <div class="gl-caso-badge gl-caso-badge--violet">Cirugía Oral</div>
+                                    </div>
+                                    <div class="gl-caso-info">
+                                        <h3>Exodoncia quirúrgica — tercer molar inferior retenido</h3>
+                                        <p>Extracción de tercer molar en posición mesioangular. Colgajo de espesor total con ostectomía mínima. Cicatrización sin complicaciones.</p>
+                                    </div>
+                                </div>
+                            </li>
+                            <!-- ══ FIN CASO ══ -->
+
+                            <!-- ══ CASO ══ -->
+                            <li class="splide__slide">
+                                <div class="gl-caso">
+                                    <div class="gl-caso-fotos gl-clickable">
+                                        <!-- FOTOS: <img src="assets/img/galeria/nombre.webp" alt=""> -->
+                                        <div class="gl-caso-ph gl-caso-ph--violet">
+                                            <i class="fas fa-user-md"></i>
+                                            <span>Fotos próximamente</span>
+                                        </div>
+                                        <div class="gl-caso-badge gl-caso-badge--violet">Cirugía Oral</div>
+                                    </div>
+                                    <div class="gl-caso-info">
+                                        <h3>Frenectomía lingual</h3>
+                                        <p>Corrección de anquiloglosia. Recuperación completa a las 2 semanas. Sin recidiva en control a los 6 meses.</p>
+                                    </div>
+                                </div>
+                            </li>
+                            <!-- ══ FIN CASO ══ -->
+
+                        </ul>
+                    </div>
+                </div>
+
+            </section>
+
+            <!-- ── ENDODONCIA ────────────────────────────────── -->
+            <section class="gl-section reveal" aria-labelledby="esp-endodoncia">
+
+                <div class="gl-section-header">
+                    <div class="gl-esp-icon gl-esp-icon--cyan">
+                        <i class="fas fa-x-ray" aria-hidden="true"></i>
+                    </div>
+                    <div>
+                        <h2 id="esp-endodoncia">Endodoncia</h2>
+                        <p>Dr. Jordy Alejandro Castillo Trujillo</p>
+                    </div>
+                </div>
+
+                <div class="gl-splide splide" id="splide-endodoncia">
+                    <div class="splide__track">
+                        <ul class="splide__list">
+
+                            <!-- ══ CASO ══ -->
+                            <li class="splide__slide">
+                                <div class="gl-caso">
+                                    <div class="gl-caso-fotos gl-clickable">
+                                        <!-- FOTOS: <img src="assets/img/galeria/nombre.webp" alt=""> -->
+                                        <div class="gl-caso-ph gl-caso-ph--cyan">
+                                            <i class="fas fa-x-ray"></i>
+                                            <span>Fotos próximamente</span>
+                                        </div>
+                                        <div class="gl-caso-badge gl-caso-badge--cyan">Endodoncia</div>
+                                    </div>
+                                    <div class="gl-caso-info">
+                                        <h3>Necropulpectomía — lesión periapical crónica</h3>
+                                        <p>Tratamiento de conductos en pieza con necrosis pulpar. Obturación tridimensional con gutapercha termoplastificada. Control radiográfico a los 12 meses.</p>
+                                    </div>
+                                </div>
+                            </li>
+                            <!-- ══ FIN CASO ══ -->
+
+                            <!-- ══ CASO ══ -->
+                            <li class="splide__slide">
+                                <div class="gl-caso">
+                                    <div class="gl-caso-fotos gl-clickable">
+                                        <!-- FOTOS: <img src="assets/img/galeria/nombre.webp" alt=""> -->
+                                        <div class="gl-caso-ph gl-caso-ph--cyan">
+                                            <i class="fas fa-x-ray"></i>
+                                            <span>Fotos próximamente</span>
+                                        </div>
+                                        <div class="gl-caso-badge gl-caso-badge--cyan">Endodoncia</div>
+                                    </div>
+                                    <div class="gl-caso-info">
+                                        <h3>Retratamiento endodóntico</h3>
+                                        <p>Desobturación completa y nueva obturación tridimensional en pieza con fracaso de tratamiento previo y lesión periapical persistente.</p>
+                                    </div>
+                                </div>
+                            </li>
+                            <!-- ══ FIN CASO ══ -->
+
+                        </ul>
+                    </div>
+                </div>
+
+            </section>
+
+            <!-- ── ORTODONCIA — ANTES Y DESPUÉS ─────────────── -->
+            <section class="gl-section reveal" aria-labelledby="esp-ortodoncia">
+
+                <div class="gl-section-header">
+                    <div class="gl-esp-icon gl-esp-icon--green">
+                        <i class="fas fa-teeth-open" aria-hidden="true"></i>
+                    </div>
+                    <div>
+                        <h2 id="esp-ortodoncia">Ortodoncia y Ortopedia Maxilofacial</h2>
+                        <p>Od. Esp. Luciana Rojas — Especialista en Ortodoncia y Ortopedia Maxilofacial</p>
+                    </div>
+                </div>
+
+                <div class="gl-splide splide" id="splide-ortodoncia">
+                    <div class="splide__track">
+                        <ul class="splide__list">
+
+                            <!-- ══ CASO ANTES/DESPUÉS ══ -->
+                            <li class="splide__slide">
+                                <div class="gl-caso gl-caso--ab">
+                                    <div class="gl-ab-fotos">
+                                        <div class="gl-ab-photo gl-clickable">
+                                            <img src="assets/img/galeria/1.webp" alt="Foto antes">
+                                            <div class="gl-caso-ph gl-caso-ph--green">
+                                                <i class="fas fa-teeth-open"></i>
+                                                <span>Foto antes</span>
+                                            </div>
+                                            <span class="gl-ab-label gl-ab-label--antes">Antes</span>
+                                        </div>
+                                        <div class="gl-ab-divider"></div>
+                                        <div class="gl-ab-photo gl-clickable">
+                                            <img src="assets/img/galeria/2.webp" alt="Foto después">
+                                            <div class="gl-caso-ph gl-caso-ph--green">
+                                                <i class="fas fa-teeth-open"></i>
+                                                <span>Foto después</span>
+                                            </div>
+                                            <span class="gl-ab-label gl-ab-label--despues">Después</span>
+                                        </div>
+                                    </div>
+                                    <div class="gl-caso-info">
+                                        <span class="gl-ab-tag">Antes · Después</span>
+                                        <h3>Maloclusión clase II — apiñamiento severo</h3>
+                                        <p>Aparatología fija multibrackets. 18 meses de tratamiento. Retención fija inferior y removible superior.</p>
+                                    </div>
+                                </div>
+                            </li>
+                            <!-- ══ FIN CASO ══ -->
+
+                            <!-- ══ CASO ANTES/DESPUÉS ══ -->
+                            <li class="splide__slide">
+                                <div class="gl-caso gl-caso--ab">
+                                    <div class="gl-ab-fotos">
+                                        <div class="gl-ab-photo gl-clickable">
+                                            <!-- FOTO ANTES: <img src="assets/img/galeria/orto-2-antes.webp" alt=""> -->
+                                            <div class="gl-caso-ph gl-caso-ph--green">
+                                                <i class="fas fa-teeth-open"></i>
+                                                <span>Foto antes</span>
+                                            </div>
+                                            <span class="gl-ab-label gl-ab-label--antes">Antes</span>
+                                        </div>
+                                        <div class="gl-ab-divider"></div>
+                                        <div class="gl-ab-photo gl-clickable">
+                                            <!-- FOTO DESPUÉS: <img src="assets/img/galeria/orto-2-despues.webp" alt=""> -->
+                                            <div class="gl-caso-ph gl-caso-ph--green">
+                                                <i class="fas fa-teeth-open"></i>
+                                                <span>Foto después</span>
+                                            </div>
+                                            <span class="gl-ab-label gl-ab-label--despues">Después</span>
+                                        </div>
+                                    </div>
+                                    <div class="gl-caso-info">
+                                        <span class="gl-ab-tag">Antes · Después</span>
+                                        <h3>Ortopedia maxilofacial — disyuntor palatino</h3>
+                                        <p>Expansión maxilar en paciente pediátrico. 12 meses de seguimiento. Ganancia de 8mm de anchura maxilar.</p>
+                                    </div>
+                                </div>
+                            </li>
+                            <!-- ══ FIN CASO ══ -->
+
+                        </ul>
+                    </div>
+                </div>
+
+            </section>
+
+            <!-- ── ESTÉTICA DENTAL ───────────────────────────── -->
+            <section class="gl-section reveal" aria-labelledby="esp-estetica">
+
+                <div class="gl-section-header">
+                    <div class="gl-esp-icon gl-esp-icon--green">
+                        <i class="fas fa-star" aria-hidden="true"></i>
+                    </div>
+                    <div>
+                        <h2 id="esp-estetica">Estética Dental</h2>
+                        <p>Dr. Jordy Alejandro Castillo Trujillo</p>
+                    </div>
+                </div>
+
+                <div class="gl-splide splide" id="splide-estetica">
+                    <div class="splide__track">
+                        <ul class="splide__list">
+
+                            <!-- ══ CASO ANTES/DESPUÉS ══ -->
+                            <li class="splide__slide">
+                                <div class="gl-caso gl-caso--ab">
+                                    <div class="gl-ab-fotos">
+                                        <div class="gl-ab-photo gl-clickable">
+                                            <!-- FOTO ANTES -->
+                                            <div class="gl-caso-ph gl-caso-ph--green">
+                                                <i class="fas fa-star"></i>
+                                                <span>Foto antes</span>
+                                            </div>
+                                            <span class="gl-ab-label gl-ab-label--antes">Antes</span>
+                                        </div>
+                                        <div class="gl-ab-divider"></div>
+                                        <div class="gl-ab-photo gl-clickable">
+                                            <!-- FOTO DESPUÉS -->
+                                            <div class="gl-caso-ph gl-caso-ph--green">
+                                                <i class="fas fa-star"></i>
+                                                <span>Foto después</span>
+                                            </div>
+                                            <span class="gl-ab-label gl-ab-label--despues">Después</span>
+                                        </div>
+                                    </div>
+                                    <div class="gl-caso-info">
+                                        <span class="gl-ab-tag">Antes · Después</span>
+                                        <h3>Carillas de porcelana feldespática — sector anterior</h3>
+                                        <p>Diseño digital previo con validación del paciente. Preparación mínimamente invasiva. 6 carillas de porcelana. Resultado definitivo a las 3 semanas.</p>
+                                    </div>
+                                </div>
+                            </li>
+                            <!-- ══ FIN CASO ══ -->
+
+                            <!-- ══ CASO ══ -->
+                            <li class="splide__slide">
+                                <div class="gl-caso">
+                                    <div class="gl-caso-fotos gl-clickable">
+                                        <!-- FOTOS: <img src="assets/img/galeria/nombre.webp" alt=""> -->
+                                        <div class="gl-caso-ph gl-caso-ph--green">
+                                            <i class="fas fa-star"></i>
+                                            <span>Fotos próximamente</span>
+                                        </div>
+                                        <div class="gl-caso-badge gl-caso-badge--green">Estética</div>
+                                    </div>
+                                    <div class="gl-caso-info">
+                                        <h3>Blanqueamiento profesional en consultorio</h3>
+                                        <p>Aplicación de peróxido de hidrógeno al 35%. Resultado visible en una sesión. Sensibilidad controlada con fluoruro postratamiento.</p>
+                                    </div>
+                                </div>
+                            </li>
+                            <!-- ══ FIN CASO ══ -->
+
+                        </ul>
+                    </div>
+                </div>
+
+            </section>
+
+        </div>
+        <!-- /gl-container -->
+
+
+        <!-- ══ VIDEOS CLÍNICOS — ocultos hasta aprobación ══ -->
+        <section class="gl-section reveal gl-videos-section" style="display:none" aria-labelledby="videos-title">
+            <div class="gl-container" style="padding-top:0;padding-bottom:0">
+                <div class="gl-section-header">
+                    <div class="gl-esp-icon gl-esp-icon--cyan">
+                        <i class="fas fa-video" aria-hidden="true"></i>
+                    </div>
+                    <div>
+                        <h2 id="videos-title">Procedimientos en video</h2>
+                        <p>Registro audiovisual de casos clínicos — formato vertical</p>
+                    </div>
+                </div>
+
+                <div class="gl-splide gl-video-splide splide" id="splide-videos">
+                    <div class="splide__track">
+                        <ul class="splide__list">
+
+                            <!-- ══ VIDEO 1 — reemplaza data-src con tu link de Cloudinary ══ -->
+                            <li class="splide__slide">
+                                <div class="gl-video-item" data-src="https://res.cloudinary.com/TUCLOUD/video/upload/v1/clinidental/video-1.mp4">
+                                    <div class="gl-video-ph"><i class="fas fa-play-circle"></i><span>Video próximamente</span></div>
+                                    <div class="gl-video-info"><h3>Colocación de implante unitario</h3></div>
+                                </div>
+                            </li>
+
+                            <!-- ══ VIDEO 2 ══ -->
+                            <li class="splide__slide">
+                                <div class="gl-video-item" data-src="https://res.cloudinary.com/TUCLOUD/video/upload/v1/clinidental/video-2.mp4">
+                                    <div class="gl-video-ph"><i class="fas fa-play-circle"></i><span>Video próximamente</span></div>
+                                    <div class="gl-video-info"><h3>Raspado y alisado radicular</h3></div>
+                                </div>
+                            </li>
+
+                            <!-- ══ VIDEO 3 ══ -->
+                            <li class="splide__slide">
+                                <div class="gl-video-item" data-src="https://res.cloudinary.com/TUCLOUD/video/upload/v1/clinidental/video-3.mp4">
+                                    <div class="gl-video-ph"><i class="fas fa-play-circle"></i><span>Video próximamente</span></div>
+                                    <div class="gl-video-info"><h3>Exodoncia quirúrgica</h3></div>
+                                </div>
+                            </li>
+
+                            <!-- ══ VIDEO 4 ══ -->
+                            <li class="splide__slide">
+                                <div class="gl-video-item" data-src="https://res.cloudinary.com/TUCLOUD/video/upload/v1/clinidental/video-4.mp4">
+                                    <div class="gl-video-ph"><i class="fas fa-play-circle"></i><span>Video próximamente</span></div>
+                                    <div class="gl-video-info"><h3>Tratamiento de conductos</h3></div>
+                                </div>
+                            </li>
+
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA FINAL -->
+        <section class="section cta-final" aria-labelledby="cta-galeria">
+            <div class="container text-center">
+                <h2 class="reveal" id="cta-galeria">
+                    ¿Quieres que tu caso<br>
+                    <span class="text-gradient">forme parte de esta galería?</span>
+                </h2>
+                <p class="reveal">Con tu autorización, los casos se documentan y publican como referencia clínica.</p>
+                <div class="hero-cta reveal mt-md">
+                    <a href="contact.html" class="btn btn-primary btn-lg">
+                        <i class="fas fa-calendar-check" aria-hidden="true"></i>
+                        Solicitar consulta
+                    </a>
+                    <a href="https://wa.me/593991746309" target="_blank" rel="noopener noreferrer" class="btn btn-ghost btn-lg">
+                        <i class="fab fa-whatsapp" aria-hidden="true"></i>
+                        WhatsApp directo
+                    </a>
+                </div>
             </div>
         </section>
 
@@ -415,7 +634,6 @@
     <footer class="site-footer">
         <div class="container">
             <div class="footer-inner">
-
                 <div class="footer-brand">
                     <a class="logo" href="index.html" aria-label="Ir al inicio">
                         <img src="assets/img/logo/logo.svg" alt="Logotipo Clinidental" height="46">
@@ -440,7 +658,6 @@
                         </div>
                     </div>
                 </div>
-
                 <div>
                     <h4>Navegación</h4>
                     <ul role="list" class="footer-links">
@@ -452,38 +669,30 @@
                         <li><a href="contact.html">Contacto</a></li>
                     </ul>
                 </div>
-
                 <div>
                     <h4>Síguenos</h4>
                     <div class="footer-social">
-                        <a href="https://www.facebook.com/jordy.castillo.5?locale=es_LA"
-                            target="_blank" rel="noopener noreferrer" aria-label="Facebook">
+                        <a href="https://www.facebook.com/jordy.castillo.5?locale=es_LA" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
                             <i class="fab fa-facebook-f" aria-hidden="true"></i>
                         </a>
-                        <a href="https://www.instagram.com/jordano_castill"
-                            target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+                        <a href="https://www.instagram.com/jordano_castill" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
                             <i class="fab fa-instagram" aria-hidden="true"></i>
                         </a>
-                        <a href="https://wa.me/593991746309"
-                            target="_blank" rel="noopener noreferrer" aria-label="WhatsApp">
+                        <a href="https://wa.me/593991746309" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp">
                             <i class="fab fa-whatsapp" aria-hidden="true"></i>
                         </a>
                     </div>
                     <div class="footer-map mt-md">
-                        <iframe
-                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3988.0449088263476!2d-79.04578632504445!3d-1.7083699362330471!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x91d32300377db3b9%3A0xa3e906479cc55556!2sCLINIDENTAL!5e0!3m2!1ses-419!2sec!4v1757644639689!5m2!1ses-419!2sec"
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3988.0449088263476!2d-79.04578632504445!3d-1.7083699362330471!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x91d32300377db3b9%3A0xa3e906479cc55556!2sCLINIDENTAL!5e0!3m2!1ses-419!2sec!4v1757644639689!5m2!1ses-419!2sec"
                             width="100%" height="180" style="border:0;" allowfullscreen="" loading="lazy"
                             referrerpolicy="no-referrer-when-downgrade"
                             title="Ubicación de Clinidental en Google Maps">
                         </iframe>
                     </div>
                 </div>
-
             </div>
         </div>
-
         <hr class="footer-divider">
-
         <div class="footer-bottom container">
             <p>&copy; <span id="year"></span> Clinidental &middot; Dr. Jordy Castillo &middot;
                Desarrollado por <a href="https://andinawebstudio.com" target="_blank" rel="noopener noreferrer">Andina Web Studio</a></p>
@@ -494,60 +703,239 @@
         </div>
     </footer>
 
-    <!-- WHATSAPP -->
-    <a href="https://wa.me/593991746309" class="whatsapp-float" target="_blank"
-        rel="noopener noreferrer" aria-label="Contactar por WhatsApp">
+    <!-- WhatsApp -->
+    <a href="https://wa.me/593991746309" class="whatsapp-float" target="_blank" rel="noopener noreferrer" aria-label="Contactar por WhatsApp">
         <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/whatsapp.svg" alt="" aria-hidden="true">
     </a>
 
-    <!-- LIGHTBOX DE GALERÍA -->
-    <div id="galeria-lightbox" class="galeria-lightbox" role="dialog" aria-modal="true" aria-label="Caso clínico en detalle">
-        <div class="galeria-lightbox-backdrop"></div>
-        <div class="galeria-lightbox-content">
-            <button class="galeria-lightbox-close" aria-label="Cerrar">
-                <i class="fas fa-times" aria-hidden="true"></i>
-            </button>
-            <div class="galeria-lightbox-img-wrap">
-                <div class="galeria-lightbox-placeholder">
-                    <i class="fas fa-image" aria-hidden="true"></i>
-                </div>
-            </div>
-            <div class="galeria-lightbox-info">
-                <span class="galeria-lightbox-tipo"></span>
-                <h3 class="galeria-lightbox-titulo"></h3>
-                <p class="galeria-lightbox-desc"></p>
-                <a href="contact.html" class="btn btn-primary btn-sm mt-md">
-                    <i class="fas fa-calendar-check" aria-hidden="true"></i>
-                    Quiero un resultado así
-                </a>
-            </div>
-        </div>
-    </div>
-
-    <!-- MODALES -->
+    <!-- Modales -->
     <div id="privacy-modal" class="modal" role="dialog" aria-modal="true" aria-labelledby="privacy-title">
         <div class="modal-content">
             <button class="close" aria-label="Cerrar">&times;</button>
             <h2 id="privacy-title">Política de Privacidad</h2>
-            <p>En <strong>Clinidental</strong> respetamos la privacidad de nuestros pacientes. Las fotografías de la galería son publicadas con autorización expresa de cada paciente.</p>
-            <h3>Uso de imágenes</h3>
-            <p>Las fotos clínicas se utilizan exclusivamente con fines informativos y educativos, nunca con fines comerciales sin consentimiento.</p>
+            <p>Las fotografías de la galería son publicadas con autorización expresa de cada paciente y se utilizan exclusivamente con fines informativos y educativos.</p>
             <h3>Contacto</h3>
             <p><a href="mailto:contacto@clinidental.com">contacto@clinidental.com</a></p>
         </div>
     </div>
-
     <div id="terms-modal" class="modal" role="dialog" aria-modal="true" aria-labelledby="terms-title">
         <div class="modal-content">
             <button class="close" aria-label="Cerrar">&times;</button>
             <h2 id="terms-title">Términos de Servicio</h2>
-            <p>El contenido de este sitio es informativo. Los resultados mostrados son casos reales pero pueden variar según cada paciente.</p>
+            <p>El contenido de este sitio es informativo. Los resultados mostrados corresponden a casos reales pero pueden variar según cada paciente.</p>
             <h3>Contacto</h3>
             <p><a href="mailto:contacto@clinidental.com">contacto@clinidental.com</a></p>
         </div>
     </div>
 
+
+    <!-- LIGHTBOX -->
+    <div class="gl-lightbox" id="gl-lightbox" role="dialog" aria-modal="true" aria-label="Foto ampliada">
+        <div class="gl-lightbox-backdrop" id="gl-lightbox-backdrop"></div>
+        <div class="gl-lightbox-content">
+            <button class="gl-lightbox-close" id="gl-lightbox-close" aria-label="Cerrar">
+                <i class="fas fa-times"></i>
+            </button>
+            <div class="gl-lightbox-img-wrap" id="gl-lightbox-img">
+                <!-- imagen o placeholder se inserta aquí -->
+            </div>
+            <div class="gl-lightbox-info" id="gl-lightbox-info">
+                <h3 id="gl-lightbox-title"></h3>
+                <p id="gl-lightbox-desc"></p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Splide.js -->
+    <script src="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/js/splide.min.js"></script>
+
+    <!-- main.js -->
     <script src="js/main.js" defer></script>
+
+    <!-- GALERÍA JS -->
+    <script>
+    document.addEventListener('DOMContentLoaded', function () {
+
+        // ── 1. Carruseles de casos por especialidad ────────────
+        var splideIds = ['implantes','periodoncia','cirugia','endodoncia','ortodoncia','estetica'];
+        splideIds.forEach(function(id) {
+            var el = document.getElementById('splide-' + id);
+            if (!el) return;
+            var slides = el.querySelectorAll('.splide__slide').length;
+            new Splide(el, {
+                type        : 'loop',
+                perPage     : slides === 1 ? 1 : slides === 2 ? 2 : 3,
+                perMove     : 1,
+                gap         : '1rem',
+                arrows      : slides > 1,
+                pagination  : slides > 1,
+                autoplay    : slides > 1,
+                interval    : 5000,
+                pauseOnHover: true,
+                speed       : 700,
+                easing      : 'cubic-bezier(0.25,0.46,0.45,0.94)',
+                breakpoints : {
+                    900: { perPage: slides === 1 ? 1 : 2 },
+                    600: { perPage: 1 },
+                },
+            }).mount();
+        });
+
+        // ── 2. Ocultar placeholder cuando hay fotos reales ────
+        document.querySelectorAll('.gl-caso-fotos').forEach(function(zone) {
+            var imgs = zone.querySelectorAll('img');
+            var ph   = zone.querySelector('.gl-caso-ph');
+            if (imgs.length > 0 && ph) {
+                ph.style.display = 'none';
+            }
+
+        });
+
+        // ── 3. Ocultar placeholder en antes/después ────────────
+        document.querySelectorAll('.gl-ab-photo').forEach(function(photo) {
+            var img = photo.querySelector('img');
+            var ph  = photo.querySelector('.gl-caso-ph');
+            if (img && ph) ph.style.display = 'none';
+        });
+
+        // ── 4. Scroll reveal ───────────────────────────────────
+        var observer = new IntersectionObserver(function(entries) {
+            entries.forEach(function(e) {
+                if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); }
+            });
+        }, { threshold: 0.08 });
+        document.querySelectorAll('.gl-section').forEach(function(el) { observer.observe(el); });
+
+        // ── 5. Hero scroll indicator ───────────────────────────
+        var scrollBtn = document.querySelector('.gl-hero-scroll');
+        if (scrollBtn) {
+            window.addEventListener('scroll', function() {
+                scrollBtn.style.opacity = window.scrollY > 60 ? '0' : '1';
+            }, { passive: true });
+        }
+
+        // ── 6. Videos Cloudinary ───────────────────────────────
+        function initVideos() {
+            document.querySelectorAll('.gl-video-item').forEach(function(item) {
+                var src = item.dataset.src;
+                if (!src) return;
+                var ph = item.querySelector('.gl-video-ph');
+                var video = document.createElement('video');
+                video.className = 'gl-video';
+                video.autoplay = true; video.muted = true;
+                video.loop = true; video.playsInline = true;
+                var source = document.createElement('source');
+                source.src = src; source.type = 'video/mp4';
+                video.appendChild(source);
+                if (ph) ph.style.display = 'none';
+                item.insertBefore(video, item.firstChild);
+            });
+            var vEl = document.getElementById('splide-videos');
+            if (vEl) {
+                new Splide(vEl, {
+                    type: 'loop', perPage: window.innerWidth < 640 ? 1 : 3,
+                    gap: '1rem', arrows: true, pagination: true, speed: 600,
+                }).mount();
+            }
+        }
+        var vSection = document.querySelector('.gl-videos-section');
+        if (vSection && vSection.style.display !== 'none') initVideos();
+
+    });
+    </script>
+
+
+    <!-- LIGHTBOX JS -->
+    <script>
+    (function(){
+        var lb      = document.getElementById('gl-lightbox');
+        var lbImg   = document.getElementById('gl-lightbox-img');
+        var lbTitle = document.getElementById('gl-lightbox-title');
+        var lbDesc  = document.getElementById('gl-lightbox-desc');
+        var lbClose = document.getElementById('gl-lightbox-close');
+        var lbBack  = document.getElementById('gl-lightbox-backdrop');
+
+        // Estado del lightbox
+        var lbImgs = [];
+        var lbIdx  = 0;
+
+        // Navegación interna del lightbox
+        var lbPrev = document.createElement('button');
+        var lbNext = document.createElement('button');
+        lbPrev.className = 'gl-lb-nav gl-lb-nav--prev';
+        lbNext.className = 'gl-lb-nav gl-lb-nav--next';
+        lbPrev.innerHTML = '<i class="fas fa-chevron-left"></i>';
+        lbNext.innerHTML = '<i class="fas fa-chevron-right"></i>';
+        lb.appendChild(lbPrev);
+        lb.appendChild(lbNext);
+
+        function showLbImg(i) {
+            if (!lbImgs.length) return;
+            lbIdx = ((i % lbImgs.length) + lbImgs.length) % lbImgs.length;
+            lbImg.innerHTML = '';
+
+            var src = lbImgs[lbIdx];
+            var el;
+            if (src) {
+                el = document.createElement('img');
+                el.src = src;
+                el.style.cssText = 'width:100%;height:100%;object-fit:contain;display:block;';
+            } else {
+                // placeholder
+                el = document.createElement('div');
+                el.style.cssText = 'width:100%;min-height:280px;display:flex;align-items:center;justify-content:center;opacity:0.3;font-size:3rem;color:#00d4ff;';
+                el.innerHTML = '<i class="fas fa-image"></i>';
+            }
+            lbImg.appendChild(el);
+
+            lbPrev.style.display = lbImgs.length > 1 ? 'flex' : 'none';
+            lbNext.style.display = lbImgs.length > 1 ? 'flex' : 'none';
+        }
+
+        function openLightbox(zone, title, desc) {
+            // Recolectar todas las fotos de la zona
+            lbImgs = Array.from(zone.querySelectorAll('img')).map(function(img) { return img.src; });
+            if (!lbImgs.length) lbImgs = [null]; // placeholder
+            lbIdx = 0;
+
+            lbTitle.textContent = title || '';
+            lbDesc.textContent  = desc  || '';
+            showLbImg(0);
+            lb.classList.add('open');
+            document.body.style.overflow = 'hidden';
+        }
+
+        lbPrev.addEventListener('click', function(e) { e.stopPropagation(); showLbImg(lbIdx - 1); });
+        lbNext.addEventListener('click', function(e) { e.stopPropagation(); showLbImg(lbIdx + 1); });
+
+        function closeLightbox() {
+            lb.classList.remove('open');
+            document.body.style.overflow = '';
+        }
+
+        document.addEventListener('click', function(e) {
+            var zone = e.target.closest('.gl-clickable');
+            if (!zone) return;
+            var caso  = zone.closest('.gl-caso, li, .splide__slide');
+            var h3    = caso ? caso.querySelector('h3') : null;
+            var p     = caso ? caso.querySelector('p')  : null;
+            var title = zone.dataset.title || (h3 ? h3.textContent : '');
+            var desc  = zone.dataset.desc  || (p  ? p.textContent  : '');
+            openLightbox(zone, title, desc);
+        });
+
+        lbClose.addEventListener('click', closeLightbox);
+        lbBack.addEventListener('click', function(e) {
+            if (e.target === lbBack) closeLightbox();
+        });
+        document.addEventListener('keydown', function(e) {
+            if (!lb.classList.contains('open')) return;
+            if (e.key === 'Escape')      closeLightbox();
+            if (e.key === 'ArrowLeft')   showLbImg(lbIdx - 1);
+            if (e.key === 'ArrowRight')  showLbImg(lbIdx + 1);
+        });
+    })();
+    </script>
 
 </body>
 </html>
