@@ -432,6 +432,24 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
 
+    /* ── FLECHAS DE SCROLL EN HERO ──────────────────────────
+       Las flechas laterales hacen scroll suave hacia la
+       siguiente sección al hacer clic                        */
+    const heroSideArrows = document.querySelectorAll('.hero-side-arrow');
+    heroSideArrows.forEach(arrow => {
+        arrow.addEventListener('click', (e) => {
+            e.preventDefault();
+            const hero = document.querySelector('.hero-full');
+            if (hero) {
+                const nextSection = hero.nextElementSibling;
+                if (nextSection) {
+                    nextSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            }
+        });
+    });
+
+
 }); // fin DOMContentLoaded
 
 /* ============================================================
@@ -532,11 +550,10 @@ document.addEventListener('DOMContentLoaded', () => {
        Cuando los stats entran en el viewport, anima el número
        de 0 al valor final con easing                          */
     const animateNumber = (el, target, duration = 1200) => {
-        const isPlus   = target.startsWith('+');
-        const isD      = target === '3D';
-        if (isD) return; // no animar "3D"
-
+        const isPlus = target.startsWith('+');
         const num    = parseInt(target.replace(/\D/g, ''));
+        if (isNaN(num) || num === 0) return; // no animar texto sin número
+
         const start  = performance.now();
 
         const step = (now) => {
@@ -685,4 +702,17 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
+});
+
+/* ── FLECHAS DE SCROLL EN HERO ──────────────────────────────── */
+document.addEventListener('DOMContentLoaded', () => {
+    document.querySelectorAll('.hero-side-arrow').forEach(arrow => {
+        arrow.addEventListener('click', () => {
+            const hero = document.querySelector('.hero-full');
+            if (hero) {
+                const next = hero.nextElementSibling;
+                if (next) next.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }
+        });
+    });
 });

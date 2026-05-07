@@ -2139,9 +2139,8 @@ model-viewer {
 
 .pf-main-photo {
     position: relative;
-    height: 480px;
+    min-height: 280px;
     background: var(--color-surface-2);
-    overflow: hidden;
 }
 
 .pf-ph {
@@ -2162,8 +2161,12 @@ model-viewer {
 .pf-ph--green i  { color: var(--color-accent); }
 
 .pf-main-photo img {
-    position: absolute; inset: 0;
-    width: 100%; height: 100%; object-fit: cover;
+    position: relative;
+    width: 100%;
+    height: auto;
+    max-height: 600px;
+    object-fit: contain;
+    display: block;
 }
 
 .pf-badge {
@@ -2214,7 +2217,7 @@ model-viewer {
 
 /* ── MÓVIL ──────────────────────────────────────────────────── */
 @media (max-width: 768px) {
-    .pf-main-photo { height: 320px; }
+    .pf-main-photo { min-height: 220px; }
     .pf-ph i       { font-size: 3.5rem; }
     .pf-caption    { padding: 1.1rem; }
     .pf-caption p  { font-size: 0.85rem; }
@@ -2234,5 +2237,5 @@ model-viewer {
 }
 
 @media (max-width: 480px) {
-    .pf-main-photo { height: 260px; }
+    .pf-main-photo { min-height: 180px; }
 }

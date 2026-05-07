@@ -185,12 +185,32 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
     overflow: hidden;
     color: var(--color-white);
     text-align: center;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+/* Imagen de fondo como div — fácil de reemplazar por video */
+.hero-bg {
+    position: absolute;
+    inset: 0;
+    background-size: cover;
+    background-position: center top;
+    background-repeat: no-repeat;
+    z-index: 0;
+}
+
+/* Video de fondo — activar cuando tengas el video de Cloudinary */
+.hero-video {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 0;
 }
 
 .hero-full {
@@ -227,6 +247,36 @@
     padding: var(--space-md);
     width: 100%;
 }
+
+/* Hero full — texto arriba, botones abajo */
+.hero-full {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-height: 100vh;
+    min-height: 100dvh;
+}
+
+.hero-full .hero-content {
+    padding-top: clamp(5rem, 12vh, 8rem);
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+.hero-full .hero-cta-bottom {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    padding: var(--space-md) var(--space-md) var(--space-xl);
+    flex-wrap: wrap;
+}
+
+.hero-full .hero-stats { display: none; }
 
 /* Títulos hero */
 .hero-title {
@@ -284,18 +334,8 @@
     line-height: 1.75;
 }
 
-/* Estadísticas bajo el CTA */
-.hero-stats {
-    display: flex;
-    justify-content: center;
-    gap: var(--space-lg);
-    margin-top: var(--space-xl);
-    padding-top: var(--space-lg);
-    border-top: 1px solid rgba(255,255,255,0.08);
-    position: relative;
-    z-index: 2;
-    width: 100%;
-}
+/* Stats — ocultas por defecto */
+.hero-stats { display: none; }
 
 .hero-stat { text-align: center; }
 
@@ -328,10 +368,27 @@
 }
 
 @media (max-width: 480px) {
-    .hero-cta { flex-direction: column; align-items: stretch; }
-    .hero-cta .btn { width: 100%; justify-content: center; }
+    .hero-cta {
+        flex-direction: row;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: center;
+        gap: 0.6rem;
+    }
+    .hero-cta .btn {
+        width: auto;
+        padding: 0.7rem 1.2rem;
+        font-size: var(--fs-sm);
+    }
     .hero-stats { gap: var(--space-md); flex-wrap: wrap; }
     .hero-title { font-size: 2.4rem; }
+    .hero-specialty {
+        font-size: 0.65rem;
+        padding: 0.3rem 0.8rem;
+        letter-spacing: 0.07em;
+        margin-bottom: var(--space-sm);
+    }
+    .lead { font-size: var(--fs-sm); margin-bottom: var(--space-md); }
 }
 
 /* Hero páginas internas */
@@ -694,3 +751,82 @@
 .footer-links li:nth-child(4) a { transition-delay: 60ms; }
 .footer-links li:nth-child(5) a { transition-delay: 80ms; }
 .footer-links li:nth-child(6) a { transition-delay: 100ms; }
+
+
+/* Stats con texto no numérico — sin animación de contador */
+.hero-stat-number.hero-stat-text {
+    font-size: clamp(1.2rem, 2vw, 1.8rem);
+    letter-spacing: 0.05em;
+}
+
+
+/* ── FLECHAS DE SCROLL EN HERO (solo desktop) ────────────── */
+.hero-side-arrows {
+    display: none;
+}
+
+@media (min-width: 769px) {
+    .hero-side-arrows {
+        display: flex;
+        position: absolute;
+        inset: 0;
+        z-index: 3;
+        pointer-events: none;
+        align-items: center;
+        justify-content: space-between;
+        padding: 0 2.5rem;
+    }
+
+    .hero-side-arrow {
+        pointer-events: all;
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        background: rgba(255,255,255,0.05);
+        backdrop-filter: blur(8px);
+        border: 1px solid rgba(255,255,255,0.10);
+        color: rgba(255,255,255,0.4);
+        font-size: 0.85rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        transition: all 0.25s;
+        animation: bounceDown 2s ease-in-out infinite;
+    }
+
+    .hero-side-arrow:hover {
+        background: rgba(0,212,255,0.12);
+        border-color: rgba(0,212,255,0.3);
+        color: var(--color-primary);
+    }
+
+    @keyframes bounceDown {
+        0%, 100% { transform: translateY(0); }
+        50%       { transform: translateY(5px); }
+    }
+}
+
+/* ── HERO CTA BOTTOM ─────────────────────────────────────────── */
+.hero-cta-bottom {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+@media (max-width: 480px) {
+    .hero-cta-bottom {
+        flex-direction: row;
+        padding: var(--space-md) var(--space-sm) var(--space-lg);
+    }
+    .hero-cta-bottom .btn {
+        padding: 0.7rem 1.2rem;
+        font-size: var(--fs-sm);
+    }
+    .hero-specialty {
+        font-size: 0.62rem;
+        padding: 0.28rem 0.75rem;
+        letter-spacing: 0.07em;
+    }
+}

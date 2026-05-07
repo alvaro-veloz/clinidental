@@ -62,6 +62,46 @@
     <link rel="stylesheet" href="css/themes.css">
     <link rel="stylesheet" href="css/utilities.css">
     <link rel="stylesheet" href="css/galeria.css">
+
+    <style>
+    .gl-video-item {
+        position: relative;
+        aspect-ratio: 9/16;
+        max-height: 520px;
+        background: var(--color-surface);
+        border: 1px solid var(--color-border-soft);
+        border-radius: var(--radius-lg);
+        overflow: hidden;
+        display: flex;
+        flex-direction: column;
+        margin: 0 auto;
+        max-width: 300px;
+    }
+    .gl-video-ph {
+        position: absolute;
+        inset: 0;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 0.75rem;
+        background: linear-gradient(160deg, rgba(0,212,255,0.05), rgba(124,58,237,0.08));
+        z-index: 1;
+    }
+    .gl-video-ph i    { font-size: 3rem; color: var(--color-primary); opacity: 0.3; }
+    .gl-video-ph span { font-size: 0.8rem; font-weight: 600; opacity: 0.35; color: var(--color-text); }
+    .gl-video-info {
+        position: absolute;
+        bottom: 0; left: 0; right: 0;
+        padding: 1rem;
+        background: linear-gradient(0deg, rgba(7,13,26,0.92) 0%, transparent 100%);
+        z-index: 2;
+    }
+    .gl-video-info h3 { font-size: var(--fs-sm); font-weight: 700; color: var(--color-white); margin: 0; }
+    .gl-video-splide .splide__slide { display: flex; justify-content: center; }
+    .gl-video-splide { padding-bottom: 2.5rem; }
+    </style>
+
 </head>
 
 <body>
@@ -98,7 +138,7 @@
             <!-- VIDEO DE FONDO — reemplaza src con tu video -->
             <video class="gl-hero-video" autoplay muted loop playsinline>
                 <!-- REEMPLAZA CON TU VIDEO REAL cuando lo tengas -->
-            <source src="https://res.cloudinary.com/dvukaadvx/video/upload/v1777136330/samples/dance-2.mp4" type="video/mp4">
+            <source src="https://res.cloudinary.com/dvukaadvx/video/upload/q_auto/f_auto/v1777579745/vecteezy_dentist-examines-incisors-of-patient_33865279_eivtpq.mov" type="video/mp4">
             </video>
 
             <!-- Fallback si no hay video todavía -->
@@ -553,7 +593,7 @@
 
 
         <!-- ══ VIDEOS CLÍNICOS — ocultos hasta aprobación ══ -->
-        <section class="gl-section reveal gl-videos-section" style="display:none" aria-labelledby="videos-title">
+        <section class="gl-section reveal gl-videos-section"  aria-labelledby="videos-title">
             <div class="gl-container" style="padding-top:0;padding-bottom:0">
                 <div class="gl-section-header">
                     <div class="gl-esp-icon gl-esp-icon--cyan">
@@ -569,43 +609,204 @@
                     <div class="splide__track">
                         <ul class="splide__list">
 
-                            <!-- ══ VIDEO 1 — reemplaza data-src con tu link de Cloudinary ══ -->
+                            <!-- ══ VIDEO 1 — reemplaza el src del <source> con tu link de Cloudinary ══ -->
                             <li class="splide__slide">
-                                <div class="gl-video-item" data-src="https://res.cloudinary.com/TUCLOUD/video/upload/v1/clinidental/video-1.mp4">
-                                    <div class="gl-video-ph"><i class="fas fa-play-circle"></i><span>Video próximamente</span></div>
+                                <div class="gl-video-item">
+                                    <video class="gl-video" autoplay muted loop playsinline>
+                                        <source src="https://res.cloudinary.com/dvukaadvx/video/upload/q_auto/f_auto/v1777580863/asas_bczwbp.mp4" type="video/mp4">
+                                    </video>
                                     <div class="gl-video-info"><h3>Colocación de implante unitario</h3></div>
                                 </div>
                             </li>
 
-                            <!-- ══ VIDEO 2 ══ -->
+                            <!-- ══ VIDEO 2 — quitar comentarios cuando tengas el link ══ -->
+                            <!--
                             <li class="splide__slide">
-                                <div class="gl-video-item" data-src="https://res.cloudinary.com/TUCLOUD/video/upload/v1/clinidental/video-2.mp4">
-                                    <div class="gl-video-ph"><i class="fas fa-play-circle"></i><span>Video próximamente</span></div>
+                                <div class="gl-video-item">
+                                    <video class="gl-video" autoplay muted loop playsinline>
+                                        <source src="TU_LINK_CLOUDINARY_2" type="video/mp4">
+                                    </video>
                                     <div class="gl-video-info"><h3>Raspado y alisado radicular</h3></div>
                                 </div>
                             </li>
+                            -->
 
                             <!-- ══ VIDEO 3 ══ -->
+                            <!--
                             <li class="splide__slide">
-                                <div class="gl-video-item" data-src="https://res.cloudinary.com/TUCLOUD/video/upload/v1/clinidental/video-3.mp4">
-                                    <div class="gl-video-ph"><i class="fas fa-play-circle"></i><span>Video próximamente</span></div>
+                                <div class="gl-video-item">
+                                    <video class="gl-video" autoplay muted loop playsinline>
+                                        <source src="TU_LINK_CLOUDINARY_3" type="video/mp4">
+                                    </video>
                                     <div class="gl-video-info"><h3>Exodoncia quirúrgica</h3></div>
                                 </div>
                             </li>
+                            -->
 
                             <!-- ══ VIDEO 4 ══ -->
+                            <!--
                             <li class="splide__slide">
-                                <div class="gl-video-item" data-src="https://res.cloudinary.com/TUCLOUD/video/upload/v1/clinidental/video-4.mp4">
-                                    <div class="gl-video-ph"><i class="fas fa-play-circle"></i><span>Video próximamente</span></div>
+                                <div class="gl-video-item">
+                                    <video class="gl-video" autoplay muted loop playsinline>
+                                        <source src="TU_LINK_CLOUDINARY_4" type="video/mp4">
+                                    </video>
                                     <div class="gl-video-info"><h3>Tratamiento de conductos</h3></div>
                                 </div>
                             </li>
+                            -->
 
                         </ul>
                     </div>
                 </div>
             </div>
         </section>
+
+
+            <!-- ══ ORTODONCISTA 2 — OCULTO hasta aprobación ══
+                 Para activar: quita style="display:none"
+                 Reemplaza "Lionel Messi" con el nombre real     -->
+            <section class="gl-section reveal" aria-labelledby="esp-orto2" style="display:none">
+                <div class="gl-section-header">
+                    <div class="gl-esp-icon gl-esp-icon--green">
+                        <i class="fas fa-teeth-open" aria-hidden="true"></i>
+                    </div>
+                    <div>
+                        <h2 id="esp-orto2">Ortodoncia y Ortopedia Maxilofacial</h2>
+                        <p>Od. Esp. Lionel Messi — Especialista en Ortodoncia y Ortopedia Maxilofacial</p>
+                    </div>
+                </div>
+
+                <div class="gl-splide splide" id="splide-orto2">
+                    <div class="splide__track">
+                        <ul class="splide__list">
+
+                            <!-- ══ ANTES/DESPUÉS 1 ══ -->
+                            <li class="splide__slide">
+                                <div class="gl-slide-wrap gl-slide-wrap--ab">
+                                    <div class="gl-ab-fotos">
+                                        <div class="gl-ab-photo gl-clickable">
+                                            <!-- FOTO ANTES: <img src="assets/img/galeria/orto2-1-antes.webp" alt=""> -->
+                                            <div class="gl-caso-ph gl-caso-ph--green"><i class="fas fa-teeth-open"></i><span>Antes</span></div>
+                                            <span class="gl-ab-label gl-ab-label--antes">Antes</span>
+                                        </div>
+                                        <div class="gl-ab-divider"></div>
+                                        <div class="gl-ab-photo gl-clickable">
+                                            <!-- FOTO DESPUÉS: <img src="assets/img/galeria/orto2-1-despues.webp" alt=""> -->
+                                            <div class="gl-caso-ph gl-caso-ph--green"><i class="fas fa-teeth-open"></i><span>Después</span></div>
+                                            <span class="gl-ab-label gl-ab-label--despues">Después</span>
+                                        </div>
+                                    </div>
+                                    <div class="gl-slide-info">
+                                        <span class="gl-ab-tag">Antes · Después</span>
+                                        <h3>Maloclusión — caso clínico</h3>
+                                        <p>Descripción del caso clínico. Reemplazar cuando el especialista confirme.</p>
+                                    </div>
+                                </div>
+                            </li>
+                            <!-- ══ FIN ANTES/DESPUÉS ══ -->
+
+                            <!-- ══ ANTES/DESPUÉS 2 ══ -->
+                            <li class="splide__slide">
+                                <div class="gl-slide-wrap gl-slide-wrap--ab">
+                                    <div class="gl-ab-fotos">
+                                        <div class="gl-ab-photo gl-clickable">
+                                            <!-- FOTO ANTES: <img src="assets/img/galeria/orto2-2-antes.webp" alt=""> -->
+                                            <div class="gl-caso-ph gl-caso-ph--green"><i class="fas fa-teeth-open"></i><span>Antes</span></div>
+                                            <span class="gl-ab-label gl-ab-label--antes">Antes</span>
+                                        </div>
+                                        <div class="gl-ab-divider"></div>
+                                        <div class="gl-ab-photo gl-clickable">
+                                            <!-- FOTO DESPUÉS: <img src="assets/img/galeria/orto2-2-despues.webp" alt=""> -->
+                                            <div class="gl-caso-ph gl-caso-ph--green"><i class="fas fa-teeth-open"></i><span>Después</span></div>
+                                            <span class="gl-ab-label gl-ab-label--despues">Después</span>
+                                        </div>
+                                    </div>
+                                    <div class="gl-slide-info">
+                                        <span class="gl-ab-tag">Antes · Después</span>
+                                        <h3>Ortopedia maxilofacial — caso clínico</h3>
+                                        <p>Descripción del caso clínico. Reemplazar cuando el especialista confirme.</p>
+                                    </div>
+                                </div>
+                            </li>
+                            <!-- ══ FIN ANTES/DESPUÉS ══ -->
+
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ══ ORTODONCISTA 3 — OCULTO hasta aprobación ══
+                 Para activar: quita style="display:none"
+                 Reemplaza "Cristiano Ronaldo" con el nombre real -->
+            <section class="gl-section reveal" aria-labelledby="esp-orto3" style="display:none">
+                <div class="gl-section-header">
+                    <div class="gl-esp-icon gl-esp-icon--green">
+                        <i class="fas fa-teeth-open" aria-hidden="true"></i>
+                    </div>
+                    <div>
+                        <h2 id="esp-orto3">Ortodoncia y Ortopedia Maxilofacial</h2>
+                        <p>Od. Esp. Cristiano Ronaldo — Especialista en Ortodoncia y Ortopedia Maxilofacial</p>
+                    </div>
+                </div>
+
+                <div class="gl-splide splide" id="splide-orto3">
+                    <div class="splide__track">
+                        <ul class="splide__list">
+
+                            <!-- ══ ANTES/DESPUÉS 1 ══ -->
+                            <li class="splide__slide">
+                                <div class="gl-slide-wrap gl-slide-wrap--ab">
+                                    <div class="gl-ab-fotos">
+                                        <div class="gl-ab-photo gl-clickable">
+                                            <!-- FOTO ANTES: <img src="assets/img/galeria/orto3-1-antes.webp" alt=""> -->
+                                            <div class="gl-caso-ph gl-caso-ph--green"><i class="fas fa-teeth-open"></i><span>Antes</span></div>
+                                            <span class="gl-ab-label gl-ab-label--antes">Antes</span>
+                                        </div>
+                                        <div class="gl-ab-divider"></div>
+                                        <div class="gl-ab-photo gl-clickable">
+                                            <!-- FOTO DESPUÉS: <img src="assets/img/galeria/orto3-1-despues.webp" alt=""> -->
+                                            <div class="gl-caso-ph gl-caso-ph--green"><i class="fas fa-teeth-open"></i><span>Después</span></div>
+                                            <span class="gl-ab-label gl-ab-label--despues">Después</span>
+                                        </div>
+                                    </div>
+                                    <div class="gl-slide-info">
+                                        <span class="gl-ab-tag">Antes · Después</span>
+                                        <h3>Maloclusión — caso clínico</h3>
+                                        <p>Descripción del caso clínico. Reemplazar cuando el especialista confirme.</p>
+                                    </div>
+                                </div>
+                            </li>
+                            <!-- ══ FIN ANTES/DESPUÉS ══ -->
+
+                            <!-- ══ ANTES/DESPUÉS 2 ══ -->
+                            <li class="splide__slide">
+                                <div class="gl-slide-wrap gl-slide-wrap--ab">
+                                    <div class="gl-ab-fotos">
+                                        <div class="gl-ab-photo gl-clickable">
+                                            <!-- FOTO ANTES: <img src="assets/img/galeria/orto3-2-antes.webp" alt=""> -->
+                                            <div class="gl-caso-ph gl-caso-ph--green"><i class="fas fa-teeth-open"></i><span>Antes</span></div>
+                                            <span class="gl-ab-label gl-ab-label--antes">Antes</span>
+                                        </div>
+                                        <div class="gl-ab-divider"></div>
+                                        <div class="gl-ab-photo gl-clickable">
+                                            <!-- FOTO DESPUÉS: <img src="assets/img/galeria/orto3-2-despues.webp" alt=""> -->
+                                            <div class="gl-caso-ph gl-caso-ph--green"><i class="fas fa-teeth-open"></i><span>Después</span></div>
+                                            <span class="gl-ab-label gl-ab-label--despues">Después</span>
+                                        </div>
+                                    </div>
+                                    <div class="gl-slide-info">
+                                        <span class="gl-ab-tag">Antes · Después</span>
+                                        <h3>Ortopedia maxilofacial — caso clínico</h3>
+                                        <p>Descripción del caso clínico. Reemplazar cuando el especialista confirme.</p>
+                                    </div>
+                                </div>
+                            </li>
+                            <!-- ══ FIN ANTES/DESPUÉS ══ -->
+
+                        </ul>
+                    </div>
+                </div>
+            </section>
 
         <!-- CTA FINAL -->
         <section class="section cta-final" aria-labelledby="cta-galeria">
@@ -757,7 +958,7 @@
     document.addEventListener('DOMContentLoaded', function () {
 
         // ── 1. Carruseles de casos por especialidad ────────────
-        var splideIds = ['implantes','periodoncia','cirugia','endodoncia','ortodoncia','estetica'];
+        var splideIds = ['implantes','periodoncia','cirugia','endodoncia','ortodoncia','estetica','orto2','orto3'];
         splideIds.forEach(function(id) {
             var el = document.getElementById('splide-' + id);
             if (!el) return;
@@ -816,27 +1017,24 @@
 
         // ── 6. Videos Cloudinary ───────────────────────────────
         function initVideos() {
-            document.querySelectorAll('.gl-video-item').forEach(function(item) {
-                var src = item.dataset.src;
-                if (!src) return;
-                var ph = item.querySelector('.gl-video-ph');
-                var video = document.createElement('video');
-                video.className = 'gl-video';
-                video.autoplay = true; video.muted = true;
-                video.loop = true; video.playsInline = true;
-                var source = document.createElement('source');
-                source.src = src; source.type = 'video/mp4';
-                video.appendChild(source);
-                if (ph) ph.style.display = 'none';
-                item.insertBefore(video, item.firstChild);
-            });
             var vEl = document.getElementById('splide-videos');
-            if (vEl) {
-                new Splide(vEl, {
-                    type: 'loop', perPage: window.innerWidth < 640 ? 1 : 3,
-                    gap: '1rem', arrows: true, pagination: true, speed: 600,
-                }).mount();
-            }
+            if (!vEl) return;
+            new Splide(vEl, {
+                type      : 'loop',
+                perPage   : 1,
+                gap       : '1.5rem',
+                arrows    : true,
+                pagination: true,
+                speed     : 600,
+                autoplay  : false,
+                focus     : 'center',
+                trimSpace : false,
+                breakpoints: {
+                    768:  { perPage: 1 },
+                    1024: { perPage: 2 },
+                    9999: { perPage: 3 },
+                }
+            }).mount();
         }
         var vSection = document.querySelector('.gl-videos-section');
         if (vSection && vSection.style.display !== 'none') initVideos();

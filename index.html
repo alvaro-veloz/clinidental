@@ -167,7 +167,13 @@
             style="background-image: url('assets/img/hero/clinidental-hero.webp');"
             aria-label="Portada Clinidental">
 
-            <!-- Partículas decorativas (CSS puro) -->
+            <!-- VIDEO — descomentar cuando tengas el video de Cloudinary -->
+            <!--
+            <video class="hero-video" autoplay muted loop playsinline>
+                <source src="https://res.cloudinary.com/TUCLOUD/video/upload/v1/clinidental/hero.mp4" type="video/mp4">
+            </video>
+            -->
+
             <div class="hero-particles" aria-hidden="true">
                 <span></span><span></span><span></span>
                 <span></span><span></span><span></span>
@@ -175,62 +181,48 @@
 
             <div class="overlay" aria-hidden="true"></div>
 
+            <!-- Flechas laterales scroll — solo desktop -->
+            <div class="hero-side-arrows" aria-hidden="true">
+                <button class="hero-side-arrow" aria-label="Ir al contenido">
+                    <i class="fas fa-chevron-down"></i>
+                </button>
+                <button class="hero-side-arrow" aria-label="Ir al contenido">
+                    <i class="fas fa-chevron-down"></i>
+                </button>
+            </div>
+
+            <!-- TEXTO ARRIBA -->
             <div class="hero-content">
                 <div class="hero-specialty reveal">
                     <i class="fas fa-tooth" aria-hidden="true"></i>
                     Especialista en Periodoncia e Implantología Quirúrgica
                 </div>
-
                 <h1 class="hero-title reveal reveal-delay-1">
                     Tu sonrisa<br>
                     <span class="highlight">sin límites</span>
                 </h1>
-
                 <p class="hero-subtitle reveal reveal-delay-2">
                     Dr. Jordy Alejandro Castillo Trujillo — Clinidental
                 </p>
-
                 <p class="lead reveal reveal-delay-3">
                     Tecnología de diagnóstico 3D, implantes de precisión quirúrgica
                     y atención especializada. Tu salud bucal en las mejores manos.
                 </p>
-
-                <div class="hero-cta reveal reveal-delay-4">
-                    <a href="contact.html" class="btn btn-primary btn-lg">
-                        <i class="fas fa-calendar-check" aria-hidden="true"></i>
-                        Solicitar consulta
-                    </a>
-                    <a href="services.html" class="btn btn-ghost btn-lg">
-                        Ver servicios
-                        <i class="fas fa-arrow-right" aria-hidden="true"></i>
-                    </a>
-                </div>
             </div>
 
-            <!-- Indicador de scroll -->
-            <button class="hero-scroll-indicator" aria-label="Ir al contenido" onclick="document.querySelector('#cobertura')?.scrollIntoView({behavior:'smooth'})">
-                <span>Descubre más</span>
-                <i class="fas fa-chevron-down" aria-hidden="true"></i>
-            </button>
-
-            <!-- Estadísticas -->
-            <div class="hero-stats reveal">
-                <div class="hero-stat">
-                    <span class="hero-stat-number">500+</span>
-                    <span class="hero-stat-label">Casos atendidos</span>
-                </div>
-                <div class="hero-stat">
-                    <span class="hero-stat-number" data-value="3D">3D</span>
-                    <span class="hero-stat-label">Tecnología digital</span>
-                </div>
-                <div class="hero-stat">
-                    <span class="hero-stat-number">4</span>
-                    <span class="hero-stat-label">Ciudades</span>
-                </div>
+            <!-- BOTONES ABAJO -->
+            <div class="hero-cta-bottom reveal">
+                <a href="contact.html" class="btn btn-primary">
+                    <i class="fas fa-calendar-check" aria-hidden="true"></i>
+                    Solicitar consulta
+                </a>
+                <a href="services.html" class="btn btn-ghost">
+                    Ver servicios
+                    <i class="fas fa-arrow-right" aria-hidden="true"></i>
+                </a>
             </div>
+
         </section>
-
-        <div class="section-divider"></div>
 
         <!-- ══ COBERTURA PROVINCIAL ════════════════════════════ -->
         <section id="cobertura" class="section section--dots" aria-labelledby="cobertura-title">

@@ -612,8 +612,36 @@
 .gl-video-info h3 { font-size: var(--fs-sm); font-weight: 700; color: var(--color-white); margin-bottom: 0.2rem; }
 .gl-video-info p  { font-size: var(--fs-xs); color: var(--color-text-muted); margin: 0; }
 
-.gl-video-splide .splide__slide { display: flex; justify-content: center; }
 .gl-video-splide { padding-bottom: 2.5rem; }
+.gl-video-splide .splide__track { padding: 0 0.5rem; }
+.gl-video-splide .splide__list  { align-items: stretch; }
+.gl-video-splide .splide__slide {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    min-height: 480px;
+}
+.gl-video-splide .splide__slide .gl-video-item {
+    width: 100%;
+    max-width: 280px;
+    height: 100%;
+    min-height: 480px;
+}
+
+/* Móvil — 1 video centrado grande */
+@media (max-width: 768px) {
+    .gl-video-splide .splide__slide {
+        min-height: 420px;
+        justify-content: center;
+    }
+    .gl-video-splide .splide__slide .gl-video-item {
+        max-width: 220px;
+        min-height: 420px;
+    }
+    .gl-video-item {
+        max-height: 420px;
+    }
+}
 
 
 
