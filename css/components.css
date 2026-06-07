@@ -1,0 +1,239 @@
+/* =========================================================
+   components.css
+   Componentes reutilizables para toda la web
+   ========================================================= */
+
+/* ==============================
+   Botones
+   ============================== */
+.btn {
+    display: inline-block;
+    padding: 0.75rem 1.5rem;
+    border-radius: var(--radius, 0.5rem);
+    font-weight: 600;
+    text-align: center;
+    transition: var(--transition);
+    cursor: pointer;
+    border: none;
+}
+
+.btn-primary {
+    background: var(--primary-color);
+    color: #fff;
+}
+
+.btn-primary:hover {
+    background: var(--secondary-color);
+}
+
+.btn-outline {
+    background: transparent;
+    border: 2px solid var(--primary-color);
+    color: var(--primary-color);
+}
+
+.btn-outline:hover {
+    background: var(--primary-color);
+    color: #fff;
+}
+
+/* ==============================
+   Cards
+   ============================== */
+.card {
+    background: #fff;
+    border-radius: var(--radius, 0.75rem);
+    box-shadow: var(--shadow);
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-lg);
+}
+
+.card img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.card-body {
+    padding: 1rem;
+}
+
+.card-title {
+    font-size: 1.25rem;
+    margin-bottom: 0.5rem;
+    font-weight: 700;
+}
+
+.card-text {
+    color: var(--text-light);
+    font-size: 0.95rem;
+}
+
+/* ==============================
+   Modales
+   ============================== */
+.modal {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.75);
+    display: none;
+    align-items: center;
+    justify-content: center;
+    z-index: 2000;
+}
+
+.modal.open {
+    display: flex;
+}
+
+.modal-content {
+    background: #fff;
+    border-radius: var(--radius, 0.75rem);
+    padding: 2rem;
+    max-width: 600px;
+    width: 90%;
+    position: relative;
+    box-shadow: var(--shadow-lg);
+}
+
+.modal-close {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    font-size: 1.5rem;
+    cursor: pointer;
+    color: var(--text-dark);
+}
+
+/* ==============================
+   Badges
+   ============================== */
+.badge {
+    display: inline-block;
+    padding: 0.25rem 0.75rem;
+    border-radius: 999px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    background: var(--primary-color);
+    color: #fff;
+}
+
+.badge-secondary {
+    background: var(--secondary-color);
+}
+
+/* ==============================
+   Testimonios / Quotes
+   ============================== */
+.testimonial {
+    background: #f9f9f9;
+    padding: 1.5rem;
+    border-radius: var(--radius, 0.75rem);
+    box-shadow: var(--shadow);
+    font-style: italic;
+    position: relative;
+}
+
+.testimonial::before {
+    content: "“";
+    font-size: 3rem;
+    color: var(--primary-color);
+    position: absolute;
+    top: -10px;
+    left: 15px;
+}
+
+/* Estilos base del menú */
+.nav-links {
+    display: flex;
+    gap: 1.5rem;
+    list-style: none;
+}
+
+.nav-links li a {
+    color: var(--dark-color, #333);
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+.nav-links li a:hover {
+    color: var(--primary-color, #0077b6);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .nav-links {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 70px;
+        right: 10px;
+        background: #ffffff;
+        border-radius: 10px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+        width: 220px;
+        padding: 1rem;
+        z-index: 1000;
+    }
+
+    .nav-links li {
+        margin: 0.5rem 0;
+    }
+
+    .nav-links li a {
+        font-size: 1rem;
+        color: #222;
+    }
+
+    .nav-links.show {
+        display: flex;
+        animation: fadeIn 0.3s ease-in-out;
+    }
+
+    /* Botón hamburguesa */
+    .menu-toggle {
+        display: block;
+        font-size: 1.8rem;
+        background: none;
+        border: none;
+        cursor: pointer;
+        color: #333;
+    }
+}
+
+/* Animación */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.mapa {
+    text-align: center;
+    margin: 50px auto;
+}
+
+.mapa h2 {
+    margin-bottom: 20px;
+    font-size: 2rem;
+    color: var(--color-primary);
+    /* usa tu color principal */
+}
+
+.mapa iframe {
+    border-radius: 12px;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+    max-width: 1000px;
+}

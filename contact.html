@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contacto | SonrisaPro</title>
+    <!-- Estilos -->
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/layout.css">
+    <link rel="stylesheet" href="css/components.css">
+    <link rel="stylesheet" href="css/themes.css">
+    <link rel="stylesheet" href="css/utilities.css">
+    <!-- Iconos -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+
+<body>
+
+    <!-- HEADER -->
+    <header class="main-header">
+        <nav class="navbar container">
+            <a href="index.html" class="logo">
+                <img src="assets/img/logo.png" alt="SonrisaPro" class="logo-img">
+            </a>
+            <!-- Botón hamburguesa -->
+            <button class="menu-toggle" id="menu-toggle">
+                <i class="fas fa-bars"></i>
+            </button>
+            <ul class="nav-links" id="nav-links">
+                <li><a href="about.html">Sobre mí</a></li>
+                <li><a href="services.html">Servicios</a></li>
+                <li><a href="guide.html">Guías</a></li>
+                <li><a href="blog.html">Blog</a></li>
+                <li><a href="faq.html">Preguntas frecuentes</a></li>
+                <li><a href="gallery.html">Galería</a></li>
+                <li><a href="contact.html" class="active">Contacto</a></li>
+                <li><a href="privacy.html">Privacidad</a></li>
+                <li><a href="terms.html">Términos</a></li>
+                <li><a href="index.html">Inicio</a></li>
+            </ul>
+            <a href="contact.html" class="btn-primary">Agendar cita</a>
+        </nav>
+    </header>
+
+    <!-- HERO INTERIOR -->
+    <section class="hero-internal">
+        <div class="hero-content container">
+            <h1>Contacto</h1>
+            <p>Estamos aquí para ayudarte. Escríbenos o agenda tu cita de manera rápida y sencilla.</p>
+        </div>
+    </section>
+
+    <!-- INFO DE CONTACTO -->
+    <section class="contact-info container">
+        <div class="info-grid">
+            <div class="info-card">
+                <i class="fa-solid fa-phone"></i>
+                <h3>Teléfono</h3>
+                <p><a href="tel:+593999573749">+593 999573749</a></p>
+            </div>
+            <div class="info-card">
+                <i class="fa-solid fa-location-dot"></i>
+                <h3>Dirección</h3>
+                <p>Av. Amazonas N34-125 y Naciones Unidas, Quito - Ecuador</p>
+            </div>
+            <div class="info-card">
+                <i class="fa-solid fa-clock"></i>
+                <h3>Horario</h3>
+                <p>Lunes a Viernes: 09h00 - 18h00 <br> Sábados: 09h00 - 13h00</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- FORMULARIO DE CONTACTO -->
+    <section class="contact-form-section container">
+        <h2>Envíanos un mensaje</h2>
+        <p>Completa el formulario y nos pondremos en contacto lo más pronto posible.</p>
+
+        <form class="contact-form">
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="nombre"><i class="fa-solid fa-user"></i> Nombre completo</label>
+                    <input type="text" id="nombre" name="nombre" placeholder="Ej. Juan Pérez" required>
+                </div>
+                <div class="form-group">
+                    <label for="email"><i class="fa-solid fa-envelope"></i> Correo electrónico</label>
+                    <input type="email" id="email" name="email" placeholder="ejemplo@email.com" required>
+                </div>
+            </div>
+
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="telefono"><i class="fa-solid fa-phone"></i> Teléfono</label>
+                    <input type="tel" id="telefono" name="telefono" placeholder="+59399999999" required>
+                </div>
+                <div class="form-group">
+                    <label for="servicio"><i class="fa-solid fa-tooth"></i> Servicio de interés</label>
+                    <select id="servicio" name="servicio" required>
+                        <option value="">Seleccione un servicio</option>
+                        <option value="implantes">Implantes dentales</option>
+                        <option value="extracciones">Extracciones de terceros molares</option>
+                        <option value="periodoncia">Periodoncia</option>
+                        <option value="ortodoncia">Ortodoncia</option>
+                        <option value="limpieza">Limpieza dental</option>
+                        <option value="otros">Otros</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="form-group full-width">
+                <label for="mensaje"><i class="fa-solid fa-comment"></i> Mensaje</label>
+                <textarea id="mensaje" name="mensaje" rows="5" placeholder="Escriba su mensaje aquí..."
+                    required></textarea>
+            </div>
+
+            <button type="submit" class="btn-primary"><i class="fa-solid fa-paper-plane"></i> Enviar mensaje</button>
+        </form>
+    </section>
+
+    <!-- MAPA -->
+    <section class="mapa container">
+        <h2>Encuéntranos aquí</h2>
+        <iframe
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15952.146226494568!2d-79.05320545367817!3d-1.7123884482304927!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x91d32300377db3b9%3A0xa3e906479cc55556!2sCLINIDENTAL!5e0!3m2!1ses-419!2sec!4v1757374488151!5m2!1ses-419!2sec" 
+        width="100%" height="400" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>    
+        
+    </section>
+
+    <!-- CTA FINAL -->
+    <section class="cta-final">
+        <div class="cta-content container">
+            <h2>Agenda tu cita ahora</h2>
+            <p>Tu salud bucal es nuestra prioridad. ¡Contáctanos hoy mismo!</p>
+            <a href="tel:+593999573749" class="btn-secondary"><i class="fa-solid fa-phone"></i> Llamar ahora</a>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="main-footer">
+        <div class="container footer-content">
+            <p>© 2025 Clinidental | San Miguel - Bolívar - Ecuador</p>
+            <div class="socials">
+                <a href="https://www.facebook.com/jordy.castillo.5?locale=es_LA" target="_blank">
+                    <i class="fab fa-facebook"></i></a>
+                <a href="https://www.instagram.com/jordano_castill?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" target="_blank">
+                    <i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fab fa-tiktok"></i></a>
+                <nav>
+                <a href="privacy.html">Política de Privacidad</a> |
+                <a href="terms.html">Términos y Condiciones</a>
+                </nav>
+            </div>
+        </div>
+    </footer>
+
+    <!-- BOTÓN FLOTANTE WHATSAPP -->
+    <a href="https://wa.me/593999573749" target="_blank" class="whatsapp-float">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <!-- JS -->
+    <script src="js/scripts.js"></script>
+</body>
+
+</html>

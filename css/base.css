@@ -1,0 +1,253 @@
+/* =========================================================
+   base.css
+   Estilos base y configuración global
+   ========================================================= */
+
+/* Reset básico */
+*,
+*::before,
+*::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Variables globales */
+:root {
+    --primary-color: #0077b6;
+    --secondary-color: #00b4d8;
+    --accent-color: #90e0ef;
+    --light-color: #f8f9fa;
+    --dark-color: #1d1d1d;
+    --text-color: #333;
+    --text-light: #555;
+    --bg-color: #ffffff;
+
+    --font-primary: "Poppins", Arial, sans-serif;
+    --font-secondary: "Roboto", Helvetica, sans-serif;
+
+    --max-width: 1200px;
+    --transition: all 0.3s ease;
+    --radius: 8px;
+    --shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+}
+
+/* Tipografía global */
+html {
+    font-size: 16px;
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: var(--font-primary);
+    font-size: 1rem;
+    line-height: 1.6;
+    color: var(--text-color);
+    background-color: var(--bg-color);
+}
+
+/* Titulares */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: var(--font-primary);
+    font-weight: 600;
+    color: var(--dark-color);
+    line-height: 1.2;
+    margin-bottom: 0.5em;
+}
+
+h1 {
+    font-size: 2.5rem;
+}
+
+h2 {
+    font-size: 2rem;
+}
+
+h3 {
+    font-size: 1.5rem;
+}
+
+h4 {
+    font-size: 1.25rem;
+}
+
+h5 {
+    font-size: 1rem;
+}
+
+h6 {
+    font-size: 0.875rem;
+}
+
+/* Párrafos */
+p {
+    margin-bottom: 1em;
+    color: var(--text-light);
+    font-family: var(--font-secondary);
+}
+
+/* Listas */
+ul,
+ol {
+    margin-left: 1.5rem;
+    margin-bottom: 1em;
+}
+
+/* Enlaces */
+a {
+    color: var(--primary-color);
+    text-decoration: none;
+    transition: var(--transition);
+}
+
+a:hover {
+    color: var(--secondary-color);
+    text-decoration: underline;
+}
+
+/* Botones base */
+button,
+.btn-primary,
+.btn-secondary {
+    display: inline-block;
+    padding: 0.75rem 1.5rem;
+    border-radius: var(--radius);
+    border: none;
+    cursor: pointer;
+    font-weight: 600;
+    transition: var(--transition);
+}
+
+.btn-primary {
+    background-color: var(--primary-color);
+    color: #fff;
+}
+
+.btn-primary:hover {
+    background-color: var(--secondary-color);
+}
+
+.btn-secondary {
+    background-color: var(--accent-color);
+    color: var(--dark-color);
+}
+
+.btn-secondary:hover {
+    background-color: var(--secondary-color);
+    color: #fff;
+}
+
+/* Imágenes */
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    border-radius: var(--radius);
+}
+
+/* Formularios */
+input,
+textarea,
+select {
+    font-family: var(--font-secondary);
+    font-size: 1rem;
+    padding: 0.75rem 1rem;
+    border: 1px solid #ccc;
+    border-radius: var(--radius);
+    width: 100%;
+    margin-bottom: 1rem;
+    outline: none;
+    transition: var(--transition);
+}
+
+input:focus,
+textarea:focus,
+select:focus {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 3px rgba(0, 119, 182, 0.2);
+}
+
+/* Tablas (base) */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 1.5rem;
+}
+
+th,
+td {
+    border: 1px solid #ddd;
+    padding: 0.75rem;
+    text-align: left;
+}
+
+th {
+    background-color: var(--primary-color);
+    color: #fff;
+}
+
+/* Citas / Bloques */
+blockquote {
+    border-left: 4px solid var(--primary-color);
+    padding-left: 1rem;
+    color: var(--text-light);
+    margin: 1.5rem 0;
+    font-style: italic;
+}
+
+/* Accesibilidad */
+:focus {
+    outline: 3px solid var(--secondary-color);
+    outline-offset: 2px;
+}
+
+/* Utilidades de espaciado */
+.mt-1 {
+    margin-top: 0.5rem;
+}
+
+.mt-2 {
+    margin-top: 1rem;
+}
+
+.mt-3 {
+    margin-top: 1.5rem;
+}
+
+.mt-4 {
+    margin-top: 2rem;
+}
+
+.mb-1 {
+    margin-bottom: 0.5rem;
+}
+
+.mb-2 {
+    margin-bottom: 1rem;
+}
+
+.mb-3 {
+    margin-bottom: 1.5rem;
+}
+
+.mb-4 {
+    margin-bottom: 2rem;
+}
+
+.text-center {
+    text-align: center;
+}
+
+.text-right {
+    text-align: right;
+}
+
+.text-left {
+    text-align: left;
+}
+
