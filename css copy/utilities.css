@@ -1,0 +1,207 @@
+/* ================================
+   utilities.css
+   Clases rápidas de ayuda
+   ================================ */
+
+/* ===== Espaciado (margins) ===== */
+.mt-0 {
+    margin-top: 0 !important;
+}
+
+.mt-sm {
+    margin-top: var(--space-sm) !important;
+}
+
+.mt-md {
+    margin-top: var(--space-md) !important;
+}
+
+.mt-lg {
+    margin-top: var(--space-lg) !important;
+}
+
+.mb-0 {
+    margin-bottom: 0 !important;
+}
+
+.mb-sm {
+    margin-bottom: var(--space-sm) !important;
+}
+
+.mb-md {
+    margin-bottom: var(--space-md) !important;
+}
+
+.mb-lg {
+    margin-bottom: var(--space-lg) !important;
+}
+
+/* ===== Espaciado (paddings) ===== */
+.pt-0 {
+    padding-top: 0 !important;
+}
+
+.pt-sm {
+    padding-top: var(--space-sm) !important;
+}
+
+.pt-md {
+    padding-top: var(--space-md) !important;
+}
+
+.pt-lg {
+    padding-top: var(--space-lg) !important;
+}
+
+.pb-0 {
+    padding-bottom: 0 !important;
+}
+
+.pb-sm {
+    padding-bottom: var(--space-sm) !important;
+}
+
+.pb-md {
+    padding-bottom: var(--space-md) !important;
+}
+
+.pb-lg {
+    padding-bottom: var(--space-lg) !important;
+}
+
+/* ===== Texto ===== */
+.text-left {
+    text-align: left !important;
+}
+
+.text-center {
+    text-align: center !important;
+}
+
+.text-right {
+    text-align: right !important;
+}
+
+.text-uppercase {
+    text-transform: uppercase !important;
+}
+
+.text-muted {
+    color: var(--color-muted) !important;
+}
+
+.text-accent {
+    color: var(--color-accent) !important;
+}
+
+/* ===== Display ===== */
+.d-block {
+    display: block !important;
+}
+
+.d-inline {
+    display: inline !important;
+}
+
+.d-flex {
+    display: flex !important;
+}
+
+.d-grid {
+    display: grid !important;
+}
+
+.flex-center {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+}
+
+/* ===== Ancho / alto ===== */
+.w-100 {
+    width: 100% !important;
+}
+
+.h-100 {
+    height: 100% !important;
+}
+
+/* ===== Visibilidad ===== */
+.hidden {
+    display: none !important;
+}
+
+.visible {
+    display: block !important;
+}
+
+/* ===== Sombras rápidas ===== */
+.shadow-sm {
+    box-shadow: var(--shadow-sm) !important;
+}
+
+.shadow-md {
+    box-shadow: var(--shadow-md) !important;
+}
+
+.shadow-lg {
+    box-shadow: var(--shadow-lg) !important;
+}
+
+/* ===== Bordes ===== */
+.rounded-sm {
+    border-radius: var(--radius-sm) !important;
+}
+
+.rounded-md {
+    border-radius: var(--radius-md) !important;
+}
+
+.rounded-lg {
+    border-radius: var(--radius-lg) !important;
+}
+
+.rounded-full {
+    border-radius: var(--radius-round) !important;
+}
+
+/* ===== Helpers responsivos ===== */
+@media (max-width: 768px) {
+    .hide-mobile {
+        display: none !important;
+    }
+}
+
+@media (min-width: 769px) {
+    .hide-desktop {
+        display: none !important;
+    }
+}
+
+/* Botón flotante de WhatsApp */
+.whatsapp-float {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 60px;
+    height: 60px;
+    background-color: #25D366;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    z-index: 999;
+}
+
+.whatsapp-float img {
+    width: 30px;
+    height: 30px;
+    filter: invert(1);
+}
+
+.whatsapp-float:hover {
+    transform: scale(1.1);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+}

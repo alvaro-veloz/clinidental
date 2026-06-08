@@ -1,0 +1,356 @@
+/* ================================
+   layout.css
+   Header / Nav / Hero / Footer / Grid (Responsive)
+   Pegar en: css/layout.css (al final)
+   ================================ */
+
+/* --------------------------
+   HEADER (sticky) - Desktop
+   -------------------------- */
+.site-header {
+    background: var(--color-bg);
+    border-bottom: 1px solid #e9ecef;
+    position: sticky;
+    top: 0;
+    z-index: 9999;
+}
+
+/* header-inner: contenedor flex para logo + nav */
+.header-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.25rem 1rem;
+    gap: 1rem;
+}
+
+/* logo */
+.logo img {
+    height: 60px;
+    /* tamaño fijo consistente */
+    width: auto;
+}
+
+/* NAV base (se verá en desktop por media query) */
+.site-nav {
+    position: relative;
+    line-height: 1;
+}
+
+/* nav-links: estilo base (desktop) */
+.nav-links {
+    display: flex;
+    gap: 1.75rem;
+    align-items: center;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+/* Si el atributo hidden existe, por defecto lo ocultamos.
+   En pantallas anchas lo sobreescribimos para que funcione sin JS. */
+.nav-links[hidden] {
+    display: none;
+}
+
+/* Links */
+.nav-links a {
+    text-decoration: none;
+    color: var(--color-dark);
+    font-weight: 500;
+    font-size: var(--fs-sm);
+    transition: color 180ms ease, transform 180ms ease;
+    padding: 0.125rem 0.25rem;
+}
+
+.nav-links a:hover,
+.nav-links a:focus {
+    color: var(--color-primary);
+    transform: translateY(-1px);
+}
+
+/* Botón destacado en nav (ej. Agendar cita) */
+.nav-links .btn-accent {
+    padding: 0.45rem 0.9rem;
+    border-radius: 8px;
+    font-weight: 600;
+    background: var(--color-primary);
+    color: #fff;
+    box-shadow: var(--shadow-sm);
+}
+
+/* --------------------------
+   NAV TOGGLE (hamburguesa)
+   -------------------------- */
+.nav-toggle {
+    background: none;
+    border: none;
+    font-size: 1.4rem;
+    cursor: pointer;
+    display: none;
+    /* visible en mobile via media query */
+    color: var(--color-dark);
+}
+
+/* --------------------------
+   RESPONSIVE: MOBILE (<=768px)
+   -------------------------- */
+@media (max-width: 768px) {
+    .header-inner {
+        padding: 0.5rem 0.75rem;
+    }
+
+    /* mostrar hamburguesa en mobile */
+    .nav-toggle {
+        display: block;
+    }
+
+    /* menú móvil: dropdown oculto por defecto */
+    .nav-links {
+        position: absolute;
+        top: calc(100% + 0.5rem);
+        right: 0.75rem;
+        background: var(--color-bg);
+        flex-direction: column;
+        align-items: stretch;
+        padding: 0.75rem;
+        gap: 0.5rem;
+        width: 220px;
+        border-radius: 10px;
+        border: 1px solid rgba(0, 0, 0, 0.05);
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+        display: none;
+        /* se activa con .show o con JS */
+    }
+
+    /* forzamos que nav-links[hidden] siga oculto en mobile */
+    .nav-links[hidden] {
+        display: none;
+    }
+
+    /* clase que activará JS para mostrar el menú */
+    .nav-links.show {
+        display: flex !important;
+    }
+
+    .nav-links a {
+        padding: 0.6rem 0.4rem;
+        width: 100%;
+    }
+}
+
+/* --------------------------
+   RESPONSIVE: DESKTOP (>=769px)
+   -------------------------- */
+@media (min-width: 769px) {
+
+    /* Aseguramos que si el elemento tiene hidden (por progressive enhancement),
+     en desktop el menú se muestre siempre (funciona si JS no cargó aún). */
+    .nav-links,
+    .nav-links[hidden] {
+        display: flex !important;
+    }
+
+    /* El toggle debe ocultarse en desktop */
+    .nav-toggle {
+        display: none;
+    }
+
+    /* Si tenías el menú como dropdown en mobile, on desktop lo será horizontal */
+    .nav-links {
+        position: static;
+        background: none;
+        flex-direction: row;
+        padding: 0;
+        gap: 2rem;
+        width: auto;
+        border: none;
+        box-shadow: none;
+    }
+}
+
+/* --------------------------
+   HERO (full-screen con overlay)
+   -------------------------- */
+.hero-full,
+.hero-dental {
+    /* ambos nombres usados en HTML; aplica a los dos */
+    position: relative;
+    height: 100vh;
+    min-height: 580px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--color-light);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    text-align: center;
+    overflow: hidden;
+}
+
+/* overlay oscuro para legibilidad */
+.hero-full .overlay,
+.hero-dental .overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(rgba(15, 23, 42, 0.45), rgba(15, 23, 42, 0.45));
+    z-index: 1;
+}
+
+/* contenedor del contenido hero (por encima del overlay) */
+.hero-full .hero-content,
+.hero-dental .hero-content {
+    position: relative;
+    z-index: 2;
+    max-width: 980px;
+    padding: var(--space-md);
+}
+
+/* títulos hero */
+.hero-title {
+    font-family: var(--font-heading);
+    font-size: clamp(2.25rem, 5.5vw, 4rem);
+    margin-bottom: 0.5rem;
+    letter-spacing: -0.02em;
+    color: var(--color-light);
+    line-height: 1.05;
+    font-weight: 700;
+}
+
+.hero-subtitle {
+    font-size: clamp(1rem, 1.2vw, 1.25rem);
+    margin-bottom: var(--space-md);
+    color: rgba(255, 255, 255, 0.95);
+}
+
+/* lead (texto secundario) */
+.lead {
+    font-size: var(--fs-base);
+    color: rgba(255, 255, 255, 0.9);
+    margin-bottom: var(--space-md);
+}
+
+/* botones grandes en hero */
+.btn-lg {
+    padding: 0.9rem 1.4rem;
+    font-size: var(--fs-sm);
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-sm);
+}
+
+/* estilos específicos de boton primario/secondary (fallbacks por si components.css no existe) */
+.btn-primary {
+    background: var(--color-primary);
+    color: #fff;
+    display: inline-block;
+    text-decoration: none;
+}
+
+.btn-secondary {
+    background: transparent;
+    color: #cbd6dd;
+    border: 1px solid #cbd6dd;
+    
+}
+
+/* responsive hero: texto más compacto en pantallas pequeñas */
+@media (max-width: 480px) {
+    .hero-title {
+        font-size: 2.1rem;
+    }
+
+    .lead {
+        font-size: var(--fs-sm);
+    }
+
+    .btn-lg {
+        width: 100%;
+        text-align: center;
+    }
+
+    .hero-cta {
+        flex-direction: column;
+        gap: 0.75rem;
+    }
+}
+
+/* --------------------------
+   GRID helpers para sections
+   -------------------------- */
+.grid {
+    display: grid;
+    gap: var(--space-md);
+}
+
+.grid-2 {
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+}
+
+.grid-3 {
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+}
+
+/* .container ya viene de base.css */
+
+/* --------------------------
+   FOOTER
+   -------------------------- */
+.site-footer {
+    background: var(--color-light);
+    color: var(--color-dark);
+    padding: var(--space-lg) 0;
+    margin-top: var(--space-lg);
+}
+
+.footer-inner {
+    display: grid;
+    gap: var(--space-md);
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    align-items: start;
+    max-width: var(--container-width);
+    margin: 0 auto;
+    padding: 0 var(--space-sm);
+}
+
+.site-footer a {
+    color: var(--color-primary);
+    /* links en azul */
+    text-decoration: none;
+}
+
+.site-footer a:hover {
+    color: var(--color-primary-dark);
+    /* azul más oscuro al pasar */
+}
+
+.footer-bottom {
+    text-align: center;
+    padding-top: var(--space-md);
+    color: var(--color-dark);
+    font-size: 0.9rem;
+}
+
+/* --------------------------
+   Utilities visuales / pequeños fixes
+   -------------------------- */
+
+/* focus-visible */
+:focus-visible {
+    outline: 3px solid var(--color-accent);
+    outline-offset: 3px;
+}
+
+/* smooth show for nav */
+.nav-links,
+.nav-links.show {
+    transition: all 200ms ease;
+}
+
+/* small responsive tweak: hero overlay slightly lighter on mobile */
+@media (max-width: 480px) {
+    .hero-full .overlay {
+        background: linear-gradient(rgba(15, 23, 42, 0.55), rgba(15, 23, 42, 0.55));
+    }
+}
+

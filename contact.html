@@ -1,0 +1,177 @@
+<!doctype html>
+<html lang="es">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Contacto — Clinidental</title>
+    <meta name="description"
+        content="Agenda tu cita en Clinidental. Implantes, estética dental y ortodoncia invisible en Cuenca. Atención personalizada.">
+
+    <!-- SEO -->
+    <meta property="og:title" content="Clinidental — Agenda tu cita">
+    <meta property="og:description" content="Contáctanos para agendar tu cita en Clinidental.">
+    <meta property="og:image" content="assets/img/hero/clinidental-hero.webp">
+    <meta property="og:type" content="website">
+
+    <!-- Favicon -->
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Poppins:wght@500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+    <!-- CSS Global -->
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/layout.css">
+    <link rel="stylesheet" href="css/components.css">
+    <link rel="stylesheet" href="css/utilities.css">
+    <link rel="stylesheet" href="css/themes.css">
+</head>
+
+<body>
+    <!-- Header -->
+    <header class="site-header">
+        <div class="header-inner container">
+            <a class="logo" href="index.html">
+                <img src="assets/img/logo/logo.svg" alt="Clinidental" height="50">
+            </a>
+            <nav class="site-nav">
+                <button class="nav-toggle" aria-controls="primary-navigation" aria-expanded="false">
+                    <span><i class="fas fa-bars"></i></span>
+                </button>
+                <ul id="primary-navigation" class="nav-links" hidden>
+                    <li><a href="index.html">Inicio</a></li>
+                    <li><a href="about.html">Sobre mí</a></li>
+                    <li><a href="services.html">Tratamientos</a></li>
+                    
+                    <li><a href="faq.html">FAQ</a></li>
+                    <li><a href="contact.html" aria-current="page" class="btn btn-accent">Contacto</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero -->
+    <section class="hero hero-small" style="background-image: url('assets/img/hero/contact-hero.webp');">
+        <div class="overlay"></div>
+        <div class="hero-content container">
+            <h1>Contáctanos</h1>
+            <p>Agenda tu cita o resuelve tus dudas en Clinidental</p>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <main id="main">
+        <section class="section contacto" aria-labelledby="contacto-title">
+            <div class="container grid grid-2">
+                <!-- Info de contacto -->
+                <div class="contact-info">
+                    <h2 id="contacto-title">Información de contacto</h2>
+                    <p>Estamos aquí para ayudarte. Puedes agendar tu cita o contactarnos a través de:</p>
+                    <ul class="contact-list">
+                        <li><i class="fas fa-phone"></i> <a href="tel:+593991746309">+593 991 746 309</a></li>
+                        <li><i class="fas fa-envelope"></i> <a href="mailto:contacto@clinidental.com">contacto@clinidental.com</a></li>
+                        <li><i class="fas fa-map-marker-alt"></i> Av. Ejemplo 123, Cuenca - Ecuador</li>
+                    </ul>
+                    <h3>Horario de atención</h3>
+                    <p>Lunes a Viernes: 09h00 – 18h00 <br> Sábados: 09h00 – 13h00</p>
+                </div>
+
+                <!-- Formulario -->
+                <div class="contact-form">
+                    <h2>Formulario de contacto</h2>
+                    <form action="send-mail.php" method="POST" class="form">
+                        <div class="form-group">
+                            <label for="name">Nombre completo</label>
+                            <input type="text" id="name" name="name" required placeholder="Escribe tu nombre">
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Correo electrónico</label>
+                            <input type="email" id="email" name="email" required placeholder="ejemplo@mail.com">
+                        </div>
+                        <div class="form-group">
+                            <label for="phone">Teléfono</label>
+                            <input type="tel" id="phone" name="phone" required placeholder="+593 999 999 999">
+                        </div>
+                        <div class="form-group">
+                            <label for="reason">Motivo de la consulta</label>
+                            <select id="reason" name="reason" required>
+                                <option value="">Selecciona una opción</option>
+                                <option value="cita">Agendar cita</option>
+                                <option value="tratamientos">Información sobre tratamientos</option>
+                                <option value="otros">Otros</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Mensaje</label>
+                            <textarea id="message" name="message" rows="5" required placeholder="Escribe tu consulta..."></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Enviar mensaje</button>
+                    </form>
+                </div>
+            </div>
+        </section>
+
+        <!-- Google Maps -->
+        <section class="section mapa text-center">
+            <div class="container">
+                <h2>Ubicación</h2>
+                <p>Visítanos en nuestra clínica en San Miguel de Bolívar</p>
+                <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3988.0449088263476!2d-79.04578632504445!3d-1.7083699362330471!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x91d32300377db3b9%3A0xa3e906479cc55556!2sCLINIDENTAL!5e0!3m2!1ses-419!2sec!4v1757961716053!5m2!1ses-419!2sec" width="100%" height="550" style="border:1;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                    
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+        <div class="footer-inner container grid grid-3">
+            <div>
+                <h4>Clinidental</h4>
+                <p>Av. Ejemplo 123, Cuenca</p>
+                <p>Tel: <a href="tel:+593991746309">+593 991 746 309</a></p>
+                <p>Email: <a href="mailto:contacto@clinidental.com">contacto@clinidental.com</a></p>
+            </div>
+            <div>
+                <h4>Enlaces rápidos</h4>
+                <ul class="footer-links">
+                    <li><a href="about.html">Sobre mí</a></li>
+                    <li><a href="services.html">Tratamientos</a></li>
+                    
+                    <li><a href="faq.html">FAQ</a></li>
+                    <li><a href="contact.html">Contacto</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4>Encuéntranos</h4>
+                <div class="footer-social">
+                    <a href="https://www.facebook.com/jordy.castillo.5?locale=es_LA"><i class="fab fa-facebook-f"></i></a>
+                    <a href="https://www.instagram.com/jordano_castill?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=="><i class="fab fa-instagram"></i></a>
+                    <a href="https://wa.me/593991746309" target="_blank"><i class="fab fa-whatsapp"></i></a>
+            </div>
+            <p>&copy; <span id="year"></span> Clinidental. Todos los derechos reservados.</p>
+                </div>
+                
+        </div>
+
+        <script src="js/main.js" defer></script>
+
+    </footer>
+    
+        <!-- Botón flotante WhatsApp -->
+    <a href="https://wa.me/593991746309" class="whatsapp-float" target="_blank" aria-label="WhatsApp">
+        <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/whatsapp.svg" alt="WhatsApp">
+    </a>
+
+    <script>
+        (function () {
+            document.getElementById('year').textContent = new Date().getFullYear();
+        })();
+    </script>
+</body>
+
+</html>
