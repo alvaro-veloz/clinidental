@@ -1,0 +1,547 @@
+/* ============================================================
+   layout.css — Header / Nav / Hero / Grid / Footer
+   Clinidental
+   ============================================================ */
+
+
+/* ── 1. HEADER ──────────────────────────────────────────────── */
+
+.site-header {
+    position: sticky;
+    top: 0;
+    z-index: 9000;
+    height: var(--header-height);          /* variable de base.css       */
+    background: var(--color-bg);
+    border-bottom: 1px solid var(--color-border);
+    /* Sombra sutil al hacer scroll (añadida por JS con clase .scrolled) */
+    transition: box-shadow var(--transition);
+}
+
+.site-header.scrolled {
+    box-shadow: var(--shadow-md);
+}
+
+.header-inner {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--space-sm);
+}
+
+/* Logo */
+.logo img {
+    height: 50px;
+    width: auto;
+    display: block;
+}
+
+
+/* ── 2. NAVEGACIÓN ──────────────────────────────────────────── */
+
+.site-nav {
+    position: relative;
+}
+
+/* Desktop: lista horizontal */
+.nav-links {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+/* Cuando el atributo hidden está presente → oculto */
+.nav-links[hidden] {
+    display: none;
+}
+
+/* Links del nav */
+.nav-links a {
+    font-weight: 500;
+    font-size: var(--fs-sm);
+    color: var(--color-dark);
+    padding: 0.2rem 0.1rem;
+    position: relative;
+    /* Solo transicionar color y transform, nunca "all" */
+    transition: color var(--transition), transform var(--transition);
+}
+
+/* Línea inferior animada al hacer hover */
+.nav-links a::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: var(--color-primary);
+    border-radius: var(--radius-round);
+    transition: width var(--transition);
+}
+
+.nav-links a:hover,
+.nav-links a[aria-current="page"] {
+    color: var(--color-primary);
+    transform: translateY(-1px);
+}
+
+.nav-links a:hover::after,
+.nav-links a[aria-current="page"]::after {
+    width: 100%;
+}
+
+/* Botón "Agendar cita" en el nav — usa el color accent correcto */
+.nav-links .btn-accent {
+    padding: 0.5rem 1.1rem;
+    border-radius: var(--radius-round);
+    font-weight: 600;
+    font-size: var(--fs-xs);
+    background: var(--color-accent);
+    color: #fff;
+    box-shadow: 0 3px 12px rgba(255, 107, 107, 0.35);
+    transition: background var(--transition),
+                box-shadow var(--transition),
+                transform var(--transition);
+}
+
+.nav-links .btn-accent:hover {
+    background: #e05555;
+    box-shadow: 0 5px 16px rgba(255, 107, 107, 0.45);
+    transform: translateY(-2px);
+}
+
+/* Sin subrayado animado en el botón CTA */
+.nav-links .btn-accent::after {
+    display: none;
+}
+
+/* Hamburguesa — oculta en desktop */
+.nav-toggle {
+    display: none;
+    font-size: 1.4rem;
+    color: var(--color-dark);
+    padding: 0.4rem;
+    border-radius: var(--radius-sm);
+    transition: background var(--transition);
+}
+
+.nav-toggle:hover {
+    background: var(--color-light);
+}
+
+
+/* ── MOBILE NAV ≤ 768px ─────────────────────────────────────── */
+@media (max-width: 768px) {
+
+    .nav-toggle {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    /* Menú desplegable */
+    .nav-links {
+        position: absolute;
+        top: calc(100% + 0.5rem);
+        right: 0;
+        background: var(--color-bg);
+        flex-direction: column;
+        align-items: stretch;
+        padding: 0.75rem;
+        gap: 0.25rem;
+        width: 240px;
+        border-radius: var(--radius-md);
+        border: 1px solid var(--color-border);
+        box-shadow: var(--shadow-lg);
+        /* Oculto por defecto — JS añade .show para mostrarlo */
+        display: none;
+    }
+
+    .nav-links[hidden] { display: none; }
+
+    .nav-links.show {
+        display: flex !important;
+    }
+
+    .nav-links a {
+        padding: 0.65rem 0.75rem;
+        border-radius: var(--radius-sm);
+        width: 100%;
+    }
+
+    .nav-links a:hover {
+        background: var(--color-light);
+        transform: none;
+    }
+
+    /* Sin línea inferior en mobile */
+    .nav-links a::after { display: none; }
+
+    .nav-links .btn-accent {
+        text-align: center;
+        justify-content: center;
+        margin-top: 0.25rem;
+    }
+}
+
+/* ── DESKTOP NAV ≥ 769px ────────────────────────────────────── */
+@media (min-width: 769px) {
+
+    /* Progressive enhancement: mostrar nav aunque JS no haya cargado */
+    .nav-links,
+    .nav-links[hidden] {
+        display: flex !important;
+    }
+
+    .nav-toggle { display: none !important; }
+
+    /* Resetear estilos del dropdown mobile */
+    .nav-links {
+        position: static;
+        background: none;
+        flex-direction: row;
+        padding: 0;
+        gap: 2rem;
+        width: auto;
+        border: none;
+        box-shadow: none;
+    }
+}
+
+
+/* ── 3. HERO ────────────────────────────────────────────────── */
+
+/* Base compartida por hero-full y hero-small */
+.hero-full,
+.hero-small {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    overflow: hidden;
+    color: #fff;
+    text-align: center;
+}
+
+/* Hero de página de inicio — pantalla completa */
+.hero-full {
+    /* dvh: viewport real en móvil (excluye barra del navegador)
+       con fallback a vh para navegadores antiguos              */
+    min-height: 100vh;
+    min-height: 100dvh;
+}
+
+/* Hero pequeño — páginas internas (about, services, faq, contact) */
+.hero-small {
+    min-height: 360px;
+    padding-block: var(--space-xl);
+}
+
+@media (max-width: 768px) {
+    .hero-small {
+        min-height: 260px;
+        padding-block: var(--space-lg);
+    }
+}
+
+/* Overlay oscuro para legibilidad del texto sobre la imagen */
+.hero-full .overlay,
+.hero-small .overlay {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    /* Gradiente direccional: más oscuro arriba, ligeramente más claro abajo */
+    background: linear-gradient(
+        160deg,
+        rgba(10, 20, 40, 0.60) 0%,
+        rgba(0, 80, 130, 0.45) 100%
+    );
+    /* pointer-events desactivado: el overlay no bloquea clics en el contenido */
+    pointer-events: none;
+}
+
+/* Contenido del hero (por encima del overlay) */
+.hero-full .hero-content,
+.hero-small .hero-content {
+    position: relative;
+    z-index: 2;
+    max-width: 860px;
+    padding: var(--space-md);
+    width: 100%;
+}
+
+/* Título principal del hero */
+.hero-title {
+    font-size: clamp(2.5rem, 6vw, 4.5rem);
+    font-weight: 700;
+    line-height: 1.05;
+    letter-spacing: -0.02em;
+    color: #fff;
+    margin-bottom: 0.5rem;
+    text-shadow: 0 2px 20px rgba(0, 0, 0, 0.3);
+}
+
+.hero-subtitle {
+    font-size: clamp(1.1rem, 2vw, 1.4rem);
+    color: rgba(255, 255, 255, 0.92);
+    font-style: italic;
+    margin-bottom: var(--space-sm);
+}
+
+/* Hero de páginas internas: h1 más compacto */
+.hero-small h1 {
+    font-size: clamp(1.8rem, 4vw, 3rem);
+    color: #fff;
+    text-shadow: 0 2px 16px rgba(0, 0, 0, 0.3);
+    margin-bottom: 0.5rem;
+}
+
+.hero-small h1 span {
+    color: var(--color-secondary);
+}
+
+/* Texto descriptivo bajo el título */
+.lead {
+    font-size: var(--fs-base);
+    color: rgba(255, 255, 255, 0.88);
+    max-width: 600px;
+    margin: 0 auto var(--space-md);
+    line-height: 1.7;
+}
+
+/* Grupo de botones del hero */
+.hero-cta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-sm);
+    justify-content: center;
+    margin-top: var(--space-md);
+}
+
+@media (max-width: 480px) {
+    .hero-cta {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .hero-cta .btn {
+        width: 100%;
+        justify-content: center;
+    }
+
+    .hero-title {
+        font-size: 2.1rem;
+    }
+}
+
+
+/* ── 4. GRID HELPERS ────────────────────────────────────────── */
+
+.grid {
+    display: grid;
+    gap: var(--space-md);
+}
+
+/* 2 columnas → 1 en móvil */
+.grid-2 {
+    grid-template-columns: repeat(2, 1fr);
+}
+
+/* 3 columnas → 1 en móvil */
+.grid-3 {
+    grid-template-columns: repeat(3, 1fr);
+}
+
+/* 4 columnas → 2 en tablet, 1 en móvil */
+.grid-4 {
+    grid-template-columns: repeat(4, 1fr);
+}
+
+@media (max-width: 960px) {
+    .grid-3 { grid-template-columns: repeat(2, 1fr); }
+    .grid-4 { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 600px) {
+    .grid-2,
+    .grid-3,
+    .grid-4 { grid-template-columns: 1fr; }
+}
+
+
+/* ── 5. FOOTER ──────────────────────────────────────────────── */
+
+.site-footer {
+    background: var(--color-light);
+    color: var(--color-dark);
+    padding-top: var(--space-lg);
+    border-top: 1px solid var(--color-border);
+}
+
+.footer-inner {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: var(--space-md);
+    align-items: start;
+    padding-bottom: var(--space-lg);
+}
+
+/* Encabezados de columnas del footer */
+.site-footer h4 {
+    font-size: var(--fs-sm);
+    font-weight: 700;
+    color: var(--color-dark);
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    margin-bottom: var(--space-sm);
+    padding-bottom: 0.4rem;
+    border-bottom: 2px solid var(--color-primary);
+    display: inline-block;
+}
+
+/* Links del footer */
+.site-footer a {
+    color: var(--color-muted);
+    transition: color var(--transition), transform var(--transition);
+    display: inline-block;
+}
+
+.site-footer a:hover {
+    color: var(--color-primary);
+    transform: translateX(3px);
+}
+
+/* Lista de links */
+.footer-links {
+    display: grid;
+    gap: 0.5rem;
+}
+
+.footer-links a {
+    font-size: var(--fs-sm);
+}
+
+/* Redes sociales */
+.footer-social {
+    display: flex;
+    gap: 0.6rem;
+    margin-top: var(--space-xs);
+    flex-wrap: wrap;
+}
+
+.footer-social a {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    background: var(--color-bg);
+    border: 1px solid var(--color-border);
+    color: var(--color-primary);
+    font-size: 0.9rem;
+    transition: background var(--transition),
+                color var(--transition),
+                transform var(--transition),
+                box-shadow var(--transition);
+}
+
+.footer-social a:hover {
+    background: var(--color-primary);
+    color: #fff;
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-md);
+}
+
+/* Mapa en el footer */
+.footer-map {
+    margin-top: var(--space-sm);
+    border-radius: var(--radius-md);
+    overflow: hidden;
+    box-shadow: var(--shadow-sm);
+}
+
+.footer-map iframe {
+    display: block;
+    width: 100%;
+    border: 0;
+}
+
+/* Barra inferior del footer */
+.footer-bottom {
+    border-top: 1px solid var(--color-border);
+    padding: var(--space-sm) 0;
+    text-align: center;
+    font-size: var(--fs-xs);
+    color: var(--color-muted);
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 0.4rem var(--space-sm);
+}
+
+.footer-bottom p {
+    margin: 0;
+    color: var(--color-muted);
+    font-size: var(--fs-xs);
+}
+
+.footer-bottom a {
+    color: var(--color-muted);
+    font-size: var(--fs-xs);
+    transition: color var(--transition);
+}
+
+.footer-bottom a:hover {
+    color: var(--color-primary);
+    transform: none;
+}
+
+@media (max-width: 600px) {
+    .footer-inner {
+        grid-template-columns: 1fr;
+    }
+
+    .footer-bottom {
+        flex-direction: column;
+        gap: 0.3rem;
+    }
+}
+
+
+/* ── 6. BOTÓN FLOTANTE WHATSAPP ─────────────────────────────── */
+
+.whatsapp-float {
+    position: fixed;
+    bottom: 1.5rem;
+    right: 1.5rem;
+    z-index: 8000;
+    width: 58px;
+    height: 58px;
+    background: #25D366;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 20px rgba(37, 211, 102, 0.45);
+    transition: transform var(--transition), box-shadow var(--transition);
+}
+
+.whatsapp-float img {
+    width: 30px;
+    height: 30px;
+    filter: invert(1);
+}
+
+.whatsapp-float:hover {
+    transform: scale(1.12) translateY(-2px);
+    box-shadow: 0 8px 28px rgba(37, 211, 102, 0.55);
+}

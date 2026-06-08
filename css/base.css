@@ -1,0 +1,329 @@
+/* ============================================================
+   base.css — Reset moderno + Variables globales
+   Clinidental
+   ============================================================ */
+
+
+/* ── 1. BOX SIZING ──────────────────────────────────────────── */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+
+/* ── 2. VARIABLES GLOBALES (:root limpio, sin reglas anidadas) ── */
+:root {
+
+    /* Colores principales */
+    --color-primary:      #0077b6;   /* azul dental principal      */
+    --color-primary-dark: #005f92;   /* azul oscuro para hovers    */
+    --color-secondary:    #00b4d8;   /* celeste complementario     */
+    --color-accent:       #ff6b6b;   /* coral para CTAs destacados */
+
+    /* Grises y fondos */
+    --color-bg:      #ffffff;
+    --color-light:   #f4f8fb;        /* fondo de secciones alt     */
+    --color-border:  #dee2e6;        /* bordes de inputs y cards   */
+    --color-text:    #212529;        /* texto principal            */
+    --color-muted:   #6c757d;        /* texto secundario / subtítulos */
+    --color-gray:    #6c757d;        /* alias de muted (compat.)   */
+    --color-dark:    #1a1f2e;        /* títulos y textos oscuros   */
+
+    /* Tipografía */
+    --font-body:    'Inter', Arial, sans-serif;
+    --font-heading: 'Poppins', Arial, sans-serif;
+
+    /* Escala tipográfica fluida
+       Formato: clamp(mínimo, preferido, máximo)             */
+    --fs-xs:   clamp(0.75rem,  0.72rem + 0.15vw, 0.85rem);
+    --fs-sm:   clamp(0.875rem, 0.84rem + 0.18vw, 0.975rem);
+    --fs-base: clamp(1rem,     0.96rem + 0.22vw, 1.125rem);
+    --fs-lg:   clamp(1.25rem,  1.15rem + 0.50vw, 1.5rem);
+    --fs-xl:   clamp(1.75rem,  1.50rem + 0.80vw, 2.25rem);
+    --fs-xxl:  clamp(2.25rem,  1.80rem + 1.50vw, 3.25rem);
+
+    /* Escala de espaciado */
+    --space-xs:  0.5rem;    /*  8px */
+    --space-sm:  1rem;      /* 16px */
+    --space-md:  2rem;      /* 32px */
+    --space-lg:  3rem;      /* 48px */
+    --space-xl:  5rem;      /* 80px */
+    --space-xxl: 7rem;      /* 112px */
+
+    /* Secciones */
+    --section-padding: clamp(3rem, 6vw, 5rem);
+
+    /* Border radius */
+    --radius-sm:    4px;
+    --radius-md:    10px;
+    --radius-lg:    18px;
+    --radius-round: 999px;
+
+    /* Sombras */
+    --shadow-sm: 0 2px 6px  rgba(0, 0, 0, 0.07);
+    --shadow-md: 0 6px 20px rgba(0, 0, 0, 0.10);
+    --shadow-lg: 0 16px 48px rgba(0, 0, 0, 0.15);
+
+    /* Layout */
+    --container-width: 1200px;
+    --header-height:   70px;
+
+    /* Transición base (uso: transition: all var(--transition)) */
+    --transition: 250ms ease;
+}
+
+
+/* ── 3. RESET MODERNO ───────────────────────────────────────── */
+
+html {
+    font-size: 16px;
+    scroll-behavior: smooth;
+    /* Evita que el header sticky tape el contenido al saltar a anclas */
+    scroll-padding-top: var(--header-height);
+    -webkit-text-size-adjust: 100%; /* evita zoom de fuente en iOS al rotar */
+}
+
+body,
+h1, h2, h3, h4, h5, h6,
+p,
+figure,
+blockquote,
+dl, dd {
+    margin: 0;
+}
+
+body {
+    min-height: 100vh;
+    line-height: 1.65;
+    font-family: var(--font-body);
+    font-size: var(--fs-base);
+    color: var(--color-text);
+    background-color: var(--color-bg);
+    /* Suavizado de fuentes en WebKit y Firefox */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    /* Evita scroll horizontal accidental */
+    overflow-x: hidden;
+}
+
+/* Listas semánticas: solo quita estilos cuando tienen role="list"
+   (accesibilidad: no elimina el rol de lista para screen readers) */
+ul[role="list"],
+ol[role="list"] {
+    list-style: none;
+    margin:  0;
+    padding: 0;
+}
+
+/* Imágenes y multimedia */
+img,
+picture,
+video,
+canvas,
+svg {
+    display: block;
+    max-width: 100%;
+    height: auto; /* evita distorsión al redimensionar */
+}
+
+/* Inputs, botones y selects heredan fuente Y color del padre */
+input,
+button,
+textarea,
+select {
+    font: inherit;
+    color: inherit;
+}
+
+/* Botón base: sin estilos de navegador */
+button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+}
+
+/* Tablas */
+table {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+/* Enlaces: sin subrayado por defecto, heredan color */
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+/* Texto preformateado */
+pre, code, kbd, samp {
+    font-family: ui-monospace, 'Cascadia Code', 'Source Code Pro', monospace;
+    font-size: 0.9em;
+}
+
+/* Líneas horizontales */
+hr {
+    border: none;
+    border-top: 1px solid var(--color-border);
+    margin: var(--space-md) 0;
+}
+
+
+/* ── 4. TIPOGRAFÍA BASE ─────────────────────────────────────── */
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-heading);
+    font-weight: 600;
+    line-height: 1.2;
+    color: var(--color-dark);
+}
+
+h1 { font-size: var(--fs-xxl); }
+h2 { font-size: var(--fs-xl);  margin-bottom: var(--space-sm); }
+h3 { font-size: var(--fs-lg);  }
+h4 { font-size: var(--fs-base); }
+h5 { font-size: var(--fs-sm);  }
+h6 { font-size: var(--fs-xs);  }
+
+p {
+    font-size: var(--fs-base);
+    color: var(--color-text);
+    /* Sin margin-bottom global — se añade solo donde se necesita
+       para no afectar párrafos en cards, navs o footers       */
+}
+
+/* Párrafos en flujo de texto normal sí llevan separación */
+article p,
+.bio-content p,
+.sobre-mi-content p,
+.accordion-body p,
+.modal-content p {
+    margin-bottom: var(--space-sm);
+    line-height: 1.75;
+}
+
+strong { font-weight: 700; }
+em     { font-style: italic; }
+
+/* Texto de ayuda / subtítulo de sección */
+.section-subtitle {
+    font-size: var(--fs-base);
+    color: var(--color-muted);
+    max-width: 680px;
+    margin: 0.5rem auto var(--space-md);
+    line-height: 1.7;
+}
+
+
+/* ── 5. CONTENEDOR ──────────────────────────────────────────── */
+
+.container {
+    max-width: var(--container-width);
+    margin-inline: auto;
+    padding-inline: var(--space-md);
+}
+
+@media (max-width: 480px) {
+    .container {
+        padding-inline: var(--space-sm);
+    }
+}
+
+
+/* ── 6. SECCIÓN BASE ────────────────────────────────────────── */
+
+.section {
+    padding-block: var(--section-padding);
+}
+
+
+/* ── 7. ACCESIBILIDAD ───────────────────────────────────────── */
+
+/* Focus visible moderno — solo muestra el outline con teclado,
+   no con clic de ratón                                         */
+:focus-visible {
+    outline: 3px solid var(--color-primary);
+    outline-offset: 3px;
+    border-radius: var(--radius-sm);
+}
+
+/* Elimina el outline antiguo de :focus para no duplicar */
+:focus:not(:focus-visible) {
+    outline: none;
+}
+
+/* Skip link — solo visible al tabular, oculto visualmente */
+.skip-link {
+    position: fixed;
+    top: -100%;
+    left: var(--space-sm);
+    z-index: 99999; /* por encima del header */
+    background: var(--color-primary);
+    color: #fff;
+    font-weight: 600;
+    font-size: var(--fs-sm);
+    padding: 0.6rem 1.2rem;
+    border-radius: var(--radius-md);
+    text-decoration: none;
+    transition: top var(--transition);
+}
+
+.skip-link:focus {
+    top: var(--space-sm);
+}
+
+/* Respeta preferencias de movimiento reducido */
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration:        0.01ms !important;
+        animation-iteration-count: 1      !important;
+        transition-duration:       0.01ms !important;
+        scroll-behavior:           auto   !important;
+    }
+}
+
+/* Modo alto contraste (Windows) */
+@media (forced-colors: active) {
+    :focus-visible {
+        outline: 3px solid ButtonText;
+    }
+}
+
+
+/* ── 8. UTILIDADES BÁSICAS ──────────────────────────────────── */
+
+.text-center  { text-align: center; }
+.text-left    { text-align: left;   }
+.text-right   { text-align: right;  }
+
+.text-muted   { color: var(--color-muted) !important; }
+.text-accent  { color: var(--color-accent) !important; }
+.text-primary { color: var(--color-primary) !important; }
+
+.mt-xs { margin-top: var(--space-xs) !important; }
+.mt-sm { margin-top: var(--space-sm) !important; }
+.mt-md { margin-top: var(--space-md) !important; }
+.mt-lg { margin-top: var(--space-lg) !important; }
+
+.mb-xs { margin-bottom: var(--space-xs) !important; }
+.mb-sm { margin-bottom: var(--space-sm) !important; }
+.mb-md { margin-bottom: var(--space-md) !important; }
+.mb-lg { margin-bottom: var(--space-lg) !important; }
+
+.hidden         { display: none !important; }
+.sr-only {
+    /* Visible para screen readers, invisible visualmente */
+    position: absolute;
+    width: 1px; height: 1px;
+    padding: 0; margin: -1px;
+    overflow: hidden;
+    clip: rect(0,0,0,0);
+    white-space: nowrap;
+    border-width: 0;
+}
+
+@media (max-width: 768px)  { .hide-mobile  { display: none !important; } }
+@media (min-width: 769px)  { .hide-desktop { display: none !important; } }

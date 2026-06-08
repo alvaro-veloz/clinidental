@@ -1,0 +1,306 @@
+/* ============================================================
+   themes.css — Temas visuales, secciones especiales y variantes
+   Clinidental
+
+   Este archivo contiene:
+   - Variantes de sección con fondos especiales
+   - Tema de la sección de testimonios (oscuro)
+   - Ajustes tipográficos de tema para header y footer
+   - Preparación para modo oscuro futuro
+   ============================================================ */
+
+
+/* ── 1. SECCIONES CON FONDO ALTERNATIVO ─────────────────────── */
+
+/* Fondo gris suave — para alternar secciones y dar ritmo visual */
+.section--alt {
+    background: var(--color-light);
+}
+
+/* Fondo primario — para secciones muy destacadas */
+.section--primary {
+    background: var(--color-primary);
+    color: #fff;
+}
+
+.section--primary h2,
+.section--primary h3,
+.section--primary p {
+    color: #fff;
+}
+
+.section--primary .section-subtitle {
+    color: rgba(255, 255, 255, 0.82);
+}
+
+/* Fondo degradado suave de marca */
+.section--gradient {
+    background: linear-gradient(
+        135deg,
+        rgba(0, 119, 182, 0.06) 0%,
+        rgba(0, 180, 216, 0.08) 100%
+    );
+    border-top:    1px solid rgba(0, 119, 182, 0.10);
+    border-bottom: 1px solid rgba(0, 119, 182, 0.10);
+}
+
+
+/* ── 2. SECCIÓN DE TESTIMONIOS (tema oscuro) ────────────────── */
+
+.testimonios {
+    background: var(--color-dark);
+    position: relative;
+    overflow: hidden;
+}
+
+/* Círculo decorativo de fondo — efecto depth */
+.testimonios::before {
+    content: '';
+    position: absolute;
+    width: 600px;
+    height: 600px;
+    border-radius: 50%;
+    background: radial-gradient(
+        circle,
+        rgba(0, 180, 216, 0.08) 0%,
+        transparent 70%
+    );
+    top: -200px;
+    right: -150px;
+    pointer-events: none;
+}
+
+.testimonios::after {
+    content: '';
+    position: absolute;
+    width: 400px;
+    height: 400px;
+    border-radius: 50%;
+    background: radial-gradient(
+        circle,
+        rgba(0, 119, 182, 0.06) 0%,
+        transparent 70%
+    );
+    bottom: -100px;
+    left: -100px;
+    pointer-events: none;
+}
+
+/* Todos los textos dentro de testimonios en blanco */
+.testimonios h2,
+.testimonios h3,
+.testimonios p,
+.testimonios .author {
+    color: #fff;
+}
+
+.testimonios .section-subtitle {
+    color: rgba(255, 255, 255, 0.75);
+}
+
+.testimonios .testimonial p {
+    color: rgba(255, 255, 255, 0.92);
+}
+
+.testimonios .testimonial .author {
+    color: var(--color-secondary);
+}
+
+/* Botones del carousel sobre fondo oscuro */
+.testimonios .carousel-btn {
+    background: rgba(255, 255, 255, 0.12);
+    border-color: rgba(255, 255, 255, 0.25);
+    color: #fff;
+}
+
+.testimonios .carousel-btn:hover {
+    background: var(--color-primary);
+    border-color: var(--color-primary);
+}
+
+/* Dots sobre fondo oscuro */
+.testimonios .carousel-dots button {
+    border-color: rgba(255, 255, 255, 0.4);
+}
+
+.testimonios .carousel-dots button.active {
+    background: var(--color-secondary);
+    border-color: var(--color-secondary);
+}
+
+
+/* ── 3. TIPOGRAFÍA DEL HEADER — ajustes de tema ─────────────── */
+/* Solo propiedades de presentación visual que no estén
+   en layout.css. Sin duplicar color, display ni transitions */
+
+.site-header .nav-links a {
+    letter-spacing: 0.02em;
+}
+
+/* El link activo usa aria-current="page" (estándar moderno) */
+.site-header .nav-links a[aria-current="page"] {
+    color: var(--color-primary);
+    font-weight: 600;
+}
+
+
+/* ── 4. TIPOGRAFÍA DEL FOOTER — ajustes de tema ─────────────── */
+/* Solo lo que no define layout.css */
+
+.site-footer {
+    font-size: var(--fs-sm);
+    line-height: 1.7;
+}
+
+.site-footer p {
+    color: var(--color-muted);
+    font-size: var(--fs-sm);
+}
+
+
+/* ── 5. SECCIÓN "SOBRE MÍ" — variante visual ────────────────── */
+
+.sobre-mi {
+    position: relative;
+}
+
+/* Línea decorativa lateral en desktop */
+@media (min-width: 769px) {
+    .sobre-mi-content {
+        padding-left: var(--space-md);
+        border-left: 3px solid var(--color-border);
+        position: relative;
+    }
+
+    .sobre-mi-content::before {
+        content: '';
+        position: absolute;
+        left: -3px;
+        top: 0;
+        width: 3px;
+        height: 60px;
+        background: var(--color-primary);
+        border-radius: var(--radius-round);
+    }
+}
+
+
+/* ── 6. SECCIÓN UNIVERSIDADES — variante visual ──────────────── */
+
+.universidades {
+    background: var(--color-light);
+    border-top:    1px solid var(--color-border);
+    border-bottom: 1px solid var(--color-border);
+}
+
+
+/* ── 7. SECCIÓN VALORES — variante visual ───────────────────── */
+
+.valores {
+    background: var(--color-bg);
+}
+
+/* Número decorativo de orden (futuro uso con counter) */
+.valores .grid-4 {
+    counter-reset: valores-counter;
+}
+
+
+/* ── 8. SECCIÓN FAQ — variante visual ───────────────────────── */
+
+.faq {
+    background: var(--color-bg);
+}
+
+/* Resaltar pregunta al hacer hover sobre el item */
+.accordion-item:hover .accordion-header:not(.active) {
+    color: var(--color-primary);
+}
+
+
+/* ── 9. SECCIÓN MAPA — variante visual ──────────────────────── */
+
+.mapa {
+    background: var(--color-light);
+    border-top: 1px solid var(--color-border);
+}
+
+
+/* ── 10. EFECTOS DE ENTRADA (scroll reveal) ─────────────────── */
+/* Clases añadidas por IntersectionObserver en main.js */
+
+.reveal {
+    opacity: 0;
+    transform: translateY(28px);
+    transition: opacity 0.55s ease, transform 0.55s ease;
+}
+
+.reveal.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Delays escalonados para animaciones en grupo */
+.reveal-delay-1 { transition-delay: 0.10s; }
+.reveal-delay-2 { transition-delay: 0.20s; }
+.reveal-delay-3 { transition-delay: 0.30s; }
+.reveal-delay-4 { transition-delay: 0.40s; }
+.reveal-delay-5 { transition-delay: 0.50s; }
+
+/* Sin animación si el usuario prefiere movimiento reducido */
+@media (prefers-reduced-motion: reduce) {
+    .reveal {
+        opacity: 1;
+        transform: none;
+        transition: none;
+    }
+}
+
+
+/* ── 11. MODO OSCURO (preparado para el futuro) ─────────────── */
+/* Descomentar cuando se quiera activar el dark mode          */
+
+/*
+@media (prefers-color-scheme: dark) {
+    :root {
+        --color-bg:     #0f172a;
+        --color-light:  #1e293b;
+        --color-dark:   #f1f5f9;
+        --color-text:   #cbd5e1;
+        --color-muted:  #94a3b8;
+        --color-border: #334155;
+    }
+
+    .site-header {
+        background: rgba(15, 23, 42, 0.95);
+        border-bottom-color: #334155;
+    }
+
+    .card,
+    .accordion-item,
+    .service-card,
+    .treatment-card,
+    .valor,
+    .tab-content {
+        background: #1e293b;
+        border-color: #334155;
+    }
+
+    .modal-content,
+    .contact-form {
+        background: #1e293b;
+    }
+}
+*/
+
+
+/* ── 12. CLASES DE COLOR DE ACENTO ──────────────────────────── */
+/* Útiles para decorar elementos específicos sin clases extra   */
+
+.accent-primary { color: var(--color-primary) !important; }
+.accent-secondary { color: var(--color-secondary) !important; }
+.accent-coral { color: var(--color-accent) !important; }
+
+.bg-primary   { background: var(--color-primary) !important; color: #fff !important; }
+.bg-light     { background: var(--color-light)   !important; }
+.bg-white     { background: var(--color-bg)      !important; }
