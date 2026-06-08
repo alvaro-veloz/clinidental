@@ -78,10 +78,12 @@
 
 html {
     font-size: 16px;
-    scroll-behavior: smooth;
-    /* Evita que el header sticky tape el contenido al saltar a anclas */
+    /* scroll-behavior: smooth eliminado del CSS para evitar el tirón
+       al combinar sticky header + hero 100dvh. El scroll suave se
+       maneja únicamente desde JS con scrollIntoView(), lo que da
+       control preciso sin jank entre secciones.                      */
     scroll-padding-top: var(--header-height);
-    -webkit-text-size-adjust: 100%; /* evita zoom de fuente en iOS al rotar */
+    -webkit-text-size-adjust: 100%;
 }
 
 body,
