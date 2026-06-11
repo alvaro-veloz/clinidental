@@ -815,6 +815,13 @@
     flex-wrap: wrap;
 }
 
+@media (max-width: 768px) {
+    /* Cara arriba a la derecha — ajustado para móvil */
+    .hero-full {
+        background-position: 70% top;
+    }
+}
+
 @media (max-width: 480px) {
     .hero-cta-bottom {
         flex-direction: row;
